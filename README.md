@@ -14,7 +14,7 @@ Backend : 김정연, 다나, 박준우, 이호영
 
 import 순서
 1.components
-2.library
+2.library, Hook
 3.scss
 ```
 
@@ -25,4 +25,11 @@ className은 camelCase를 따릅니다.
 
 css 속성 선언 순서는 Daum Site css 속성 선언 순서를 따릅니다.
 https://uxkm.io/publishing/css/03-cssMiddleclass/10-css_attr_rule#gsc.tab=0
+```
+
+### branch
+
+```
+feature/기능요약
+ex) feature/Login, feature/Main
 ```
