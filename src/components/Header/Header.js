@@ -4,8 +4,9 @@ import './Header.scss';
 
 const Header = () => {
   return (
-    <div className="header">
+    <header>
       <div>
+        <NavButton to="/">홈</NavButton>
         <NavButton to="/hair">헤어</NavButton>
         <NavButton to="/perfume">향수</NavButton>
       </div>
@@ -13,7 +14,7 @@ const Header = () => {
         <NavButton to="/login">로그인</NavButton>
         <NavButton to="/cart">카트</NavButton>
       </div>
-    </div>
+    </header>
   );
 };
 
