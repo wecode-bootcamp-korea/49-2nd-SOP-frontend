@@ -32,4 +32,6 @@ https://uxkm.io/publishing/css/03-cssMiddleclass/10-css_attr_rule#gsc.tab=0
 ```
 feature/기능요약
 ex) feature/Login, feature/Main
+
+release 브랜치를 생성하여 테스트
 ```
