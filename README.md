@@ -10,7 +10,7 @@ Backend : 김정연, 다나, 박준우, 이호영
 ### files
 
 ```
-파일명은 PascalCase 따릅니다.
+파일명은 PascalCase를 따릅니다.
 
 import 순서
 1.components
@@ -21,7 +21,7 @@ import 순서
 ### scss ,css
 
 ```
-className은 camelCatse를 따릅니다.
+className은 camelCase를 따릅니다.
 
 css 속성 선언 순서는 Daum Site css 속성 선언 순서를 따릅니다.
 https://uxkm.io/publishing/css/03-cssMiddleclass/10-css_attr_rule#gsc.tab=0
