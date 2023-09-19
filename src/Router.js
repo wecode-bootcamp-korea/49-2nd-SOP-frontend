@@ -1,4 +1,4 @@
-import Main from '../src/pages/Main/Main';
+import Main from './pages/Main/Main';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Router = () => {
