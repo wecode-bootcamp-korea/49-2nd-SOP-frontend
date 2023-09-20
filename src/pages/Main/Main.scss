@@ -1,3 +1,9 @@
+@import '/src/styles/variable.scss';
+
 .main {
-  height: 200vh;
+  height: 100vh;
+
+  .productSlider {
+    display: flex;
+  }
 }
