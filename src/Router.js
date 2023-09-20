@@ -1,5 +1,6 @@
 import Main from './pages/Main/Main';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Router = () => {
@@ -9,6 +10,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Main />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
