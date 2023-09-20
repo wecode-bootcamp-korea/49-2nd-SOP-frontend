@@ -1,0 +1,15 @@
+@import '../../styles/variable.scss';
+
+section {
+  display: grid;
+  grid-template-rows: 1fr 8fr;
+  width: 200px;
+  height: 400px;
+
+  .title {
+    border-bottom: 1px solid $Beige;
+    font-size: 20px;
+    font-weight: 500;
+    color: $Beige;
+  }
+}
