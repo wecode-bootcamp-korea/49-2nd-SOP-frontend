@@ -1,0 +1,38 @@
+.modalWrapper {
+  position: fixed;
+  z-index: 1400;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+
+  .loginModal {
+    padding: 50px 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+
+    .loginScreen {
+      background-color: green;
+      max-width: 600px;
+      margin: auto;
+      height: auto;
+      padding: 50px;
+
+      .loginContent {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+
+        .loginLetter {
+          margin: 0;
+          h1 {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}
