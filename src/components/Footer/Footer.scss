@@ -1,0 +1,50 @@
+@import '../../styles/variable.scss';
+
+footer {
+  display: grid;
+  grid-template-rows: auto 72px;
+  width: 100%;
+  height: 1000px;
+  background-color: $Black;
+
+  .footerContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 25px;
+    padding: 30px;
+
+    .communicationContainer {
+      display: flex;
+      flex-direction: column;
+
+      .communication {
+        min-width: 250px;
+        height: 45px;
+        border-bottom: 1px solid $Beige;
+        color: $Beige;
+      }
+
+      .communicationMain {
+        height: 30px;
+        margin-top: 10px;
+        line-height: 30px;
+        color: $Beige;
+      }
+    }
+
+    .sectionContainer {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+  }
+
+  .corp {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    border-top: 3px solid $Beige;
+    color: white;
+  }
+}
