@@ -1,0 +1,33 @@
+@import '../../styles/variable.scss';
+
+footer {
+  display: grid;
+  grid-template-rows: auto 72px;
+  width: 100%;
+  height: 1000px;
+  background-color: $Black;
+
+  .footerContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 25px;
+    padding: 30px;
+
+    .communication {
+    }
+
+    .sectionContainer {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .corp {
+    display: flex;
+    align-items: center;
+    border-top: 3px solid $Beige;
+    padding-left: 30px;
+    color: white;
+  }
+}
