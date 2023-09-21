@@ -1,5 +1,26 @@
-.mainItemBox {
+@import '/src/styles/variable.scss';
+
+.product {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: 10px;
+  width: 440px;
+  height: 800px;
+  background-color: $Beige;
+
+  img {
+    width: 500px;
+    height: 700px;
+  }
+
+  .productName {
+    font-size: 23px;
+    font-weight: 500;
+  }
+
+  .aroma {
+    font-size: 18px;
+  }
 }

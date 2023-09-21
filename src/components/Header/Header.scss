@@ -6,9 +6,11 @@ header {
   align-items: center;
   position: sticky;
   top: 0;
+  z-index: 3;
   padding: 0 30px;
   width: 100%;
   height: 80px;
+  border-bottom: 0.5px solid gray;
   background-color: $Beige;
 
   div {
