@@ -1,6 +1,7 @@
 import Button from '../Button/Button';
 import Product from '../Product/Product';
 import React, { useState } from 'react';
+import './ProductContainer.scss';
 
 const ProductContainer = ({ productList }) => {
   const [count, setCount] = useState(0);
@@ -18,6 +19,7 @@ const ProductContainer = ({ productList }) => {
       setCount(count - 1);
     }
   };
+
   return (
     <div className="productContainer">
       <div
