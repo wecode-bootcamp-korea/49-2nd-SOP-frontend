@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "샴푸",
+      "options": [
+        {
+          "id": 1,
+          "size": "100 mL",
+          "img_url": "",
+          "price": 20000
+        },
+        {
+          "id": 2,
+          "size": "500 mL(펌프 미포함)",
+          "img_url": "",
+          "price": 55000
+        },
+        { "id": 3, "size": "500 mL", "img_url": "", "price": 57000 }
+      ],
+      "suited_to": "가는 모발, 중간 모발, 거친 모발, 건조한 모발, 손상 모발, 염색 모발을 포함한 모발 민감성을 포함한 대부분의 두피 타입",
+      "aroma": "시트러스, 흙내음, 우디"
+    },
+    {
+      "id": 2,
+      "name": "볼류마이징 샴푸",
+      "options": [
+        {
+          "id": 1,
+          "size": "500 mL",
+          "img_url": "../images/image2.png",
+          "price": 57000
+        }
+      ],
+      "suited_to": "얇은, 힘없는 모발",
+      "aroma": "민트, 허브"
+    },
+    {
+      "id": 3,
+      "name": "린스",
+      "options": [
+        {
+          "id": 1,
+          "size": "500 mL",
+          "img_url": "../images/image1.png",
+          "price": 57000
+        }
+      ],
+      "suited_to": "가는 모발, 연약한 모발, 염색 모발을 포함한 다양한 모발 타입",
+      "aroma": "민트, 허브"
+    },
+    {
+      "id": 4,
+      "name": "컨디셔너",
+      "options": [{ "id": 1, "size": "500 mL", "img_url": "", "price": 57000 }],
+      "suited_to": "가는 모발, 연약한 모발, 염색 모발을 포함한 다양한 모발 타입",
+      "aroma": "민트, 허브"
+    }
+  ]
+}
