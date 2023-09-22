@@ -1,0 +1,9 @@
+@import '../../styles/variable.scss';
+
+.subject {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  line-height: 30px;
+  color: $Beige;
+}
