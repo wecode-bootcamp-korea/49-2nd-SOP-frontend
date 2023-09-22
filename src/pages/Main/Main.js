@@ -14,7 +14,7 @@ const Main = () => {
   }, []);
 
   if (productList.length === 0) {
-    return;
+    return null;
   }
 
   return (
