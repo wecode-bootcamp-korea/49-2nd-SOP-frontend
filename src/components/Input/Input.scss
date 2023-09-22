@@ -1,0 +1,23 @@
+.input {
+  border-color: #ccc;
+  width: 100%;
+  font-size: 24px;
+  background-color: transparent;
+  border-width: 0 0 1px;
+  border-style: solid;
+  line-height: 1.5;
+}
+
+// input::placeholder {
+//   position: absolute;
+//   transition:
+//     top 0.2s,
+//     font-size 0.2s;
+// }
+
+// input:focus::placeholder {
+//   top: -8px;
+//   font-size: 12px;
+//   color: blue;
+//   z-index: 1000;
+// }
