@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+// import React, { useEffect, useState } from 'react';
 import './DetailPage.scss';
 
 const DetailPage = () => {
-  const [itemDetail, setItemDetail] = useState([]);
-  const params = useParams();
-  console.log(params);
-  useEffect(() => {
-    fetch('/data/detailData.json')
-      .then(response => response.json())
-      .then(data => {
-        setItemDetail(data.data);
-        console.log(data);
-        console.log(data.data);
-      });
-  }, []);
+  // const [itemDetail, setItemDetail] = useState([]);
+  // useEffect(() => {
+  //   fetch('/data/detailData.json')
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setItemDetail(data.data);
+  //     });
+  // }, []);
   return (
     <div className="productPageTop">
       <img

@@ -7,6 +7,9 @@
   flex-direction: column;
   justify-content: center;
   gap: 10px;
+  &:hover {
+    background-color: #f0efe1;
+  }
   .itemImg {
     height: 60%;
   }

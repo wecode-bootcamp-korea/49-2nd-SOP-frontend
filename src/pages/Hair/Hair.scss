@@ -19,13 +19,31 @@ body {
       }
     }
     .HairMiddle {
+      background-color: #f6f5e8;
       margin-top: 100px;
       display: grid;
       justify-content: center;
       grid-template-columns: repeat(3, auto);
       grid-template-rows: auto;
-      grid-gap: 10px;
+
+      // grid-gap: 10px;
       margin-bottom: 50px;
+      .hairText {
+        width: 500px;
+        padding: 80px 40px;
+        .hairBoldText {
+          font-size: 1.5em;
+          font-family:
+            Zapf Humanist,
+            serif;
+          white-space: normal;
+          margin-block-start: 0.83em;
+          margin-block-end: 0.83em;
+        }
+        .hairMediumText {
+          line-height: 1.6;
+        }
+      }
     }
   }
 }
