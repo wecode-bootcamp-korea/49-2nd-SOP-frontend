@@ -1,0 +1,16 @@
+[
+  {
+    "productId": 1,
+    "productName": "테싯 오 드 퍼퓸",
+    "size": "50ml",
+    "price": "150000",
+    "quantity": 1
+  },
+  {
+    "productId": 1,
+    "productName": "테싯 오 드 퍼퓸",
+    "size": "100ml",
+    "price": "200000",
+    "quantity": 1
+  }
+]
