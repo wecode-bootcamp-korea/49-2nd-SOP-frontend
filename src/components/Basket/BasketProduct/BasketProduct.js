@@ -1,8 +1,14 @@
-import React from 'react';
+import SelectQuantity from '../../SelectQuantity/SelectQuantity';
+import React, { useState } from 'react';
 import './BasketProduct.scss';
 
 const BasketProduct = ({ productInfo }) => {
-  const { productName, productImage, quantity, size, price } = productInfo;
+  const { productName, productImage, size, quantity, price } = productInfo;
+  const [selectQuantity, setSelectQuantity] = useState(quantity);
+
+  const handleQuantity = event => {
+    setSelectQuantity(Number(event.target.value));
+  };
 
   return (
     <div className="BasketProduct">
@@ -18,8 +24,11 @@ const BasketProduct = ({ productInfo }) => {
         </div>
       </div>
       <div>
-        <div>{quantity}</div>
-        <div>₩{(price * quantity).toLocaleString()}</div>
+        <SelectQuantity
+          handleQuantity={handleQuantity}
+          selectQuantity={selectQuantity}
+        />
+        <div>₩{(price * selectQuantity).toLocaleString()}</div>
       </div>
     </div>
   );
