@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MdClose } from 'react-icons/md';
+
 import './Login.scss';
 import Input from '../../components/Input/Input';
 import { useNavigate } from 'react-router-dom';
@@ -16,7 +17,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   const goToSignup = () => {
-    navigate('/singup');
+    navigate('/signup');
   };
 
   const goToMain = () => {

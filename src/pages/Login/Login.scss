@@ -85,13 +85,7 @@
             font-family: 'Suisse Regular', sans-serif;
 
             .viewPassword {
-              position: absolute;
-              top: 35px;
-              right: 0;
-              border: none;
-              background-color: transparent;
-              font-size: 16px;
-              line-height: 1.7;
+              @include viewPasswordButton;
             }
           }
           .loginButton {

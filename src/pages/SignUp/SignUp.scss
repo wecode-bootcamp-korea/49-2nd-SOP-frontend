@@ -1,3 +1,89 @@
+@import '../../styles/mixin.scss';
+
 .signUp {
-  height: 200vh;
+  // position: fixed;
+  z-index: 1400;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  outline: none;
+
+  .signUpModal {
+    overflow-y: auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 50px 0;
+    background-color: #fffef2;
+  }
+  .signUpScreen {
+    max-width: 600px;
+    height: auto;
+    margin: auto;
+    padding: 50px;
+    background-color: #fffef2;
+    border: 1px solid;
+    border-radius: 6px;
+
+    .leftArrowAndBackButton {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 42px;
+      .goBackButton,
+      .closeButton {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+      }
+    }
+
+    .signUpContent {
+      display: flex;
+      flex-direction: column;
+      margin-top: 40px;
+
+      .signUpLetter {
+        font-size: 30px;
+      }
+
+      .inputAndButtonWrappper {
+        margin-top: 30px;
+
+        .nameWrapper {
+          display: flex;
+          padding-top: 25px;
+          margin-bottom: 35px;
+
+          // .firstNameInPut {
+          // }
+
+          // .lastNameInput {
+          // }
+        }
+        .emailWrapper,
+        .passwordWrapper {
+          padding-top: 25px;
+          margin-bottom: 35px;
+        }
+
+        .passwordWrapper {
+          position: relative;
+          .viewPassword {
+            @include viewPasswordButton;
+          }
+        }
+        .passwordCheckWrapper {
+          margin-bottom: 35px;
+        }
+      }
+    }
+  }
+}
+
+.scrollLetterWrapper {
+  width: 100%;
+  height: 50px;
 }
