@@ -35,28 +35,36 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  // const handleLogin = () => {
-  //   fetch('https://www.2sop.com/signIn', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json;charset=utf-8',
-  //     },
-  //     body: JSON.stringify({
-  //       email: email,
-  //       password: password,
-  //     }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       if (data.message === 'login complete') {
-  //         alert('로그인이 성공했습니다');
-  //         localStorage.setItem('JWT토큰', data.accessToken);
-  //         goToMain();
-  //       } else {
-  //         alert('로그인 실패 : 올바른 정보를 입력하세요');
-  //       }
-  //     });
-  // };
+  const handleLogin = () => {
+    if (email === '') {
+      alert('이메일을 입력해주세요');
+      return;
+    } else if (password === '') {
+      alert('비밀번호를 입력해주세요');
+      return;
+    } /*else {
+      fetch('https://www.2sop.com/signIn', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.message === 'login complete') {
+            alert('로그인이 성공했습니다');
+            localStorage.setItem('JWT토큰', data.accessToken);
+            goToMain();
+          } else {
+            alert('로그인 실패 : 올바른 정보를 입력하세요');
+          }
+        });
+    }*/
+  };
 
   return (
     <div className="login">
@@ -97,7 +105,7 @@ const Login = () => {
               </div>
               <p>비밀번호 재설정하기</p>
 
-              <button className="loginButton" /*onClick={handleLogin}*/>
+              <button className="loginButton" onClick={handleLogin}>
                 로그인
               </button>
             </div>
