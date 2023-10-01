@@ -16,7 +16,8 @@ const SignUp = () => {
   const [marketing, setMarketing] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleShowPassword = () => {
+  const handleShowPassword = event => {
+    event.preventDefault();
     setShowPassword(!showPassword);
   };
 
@@ -52,8 +53,6 @@ const SignUp = () => {
               <h1>회원가입</h1>
             </div>
             <form className="inputAndButtonWrappper">
-              {/* 여기부터 css 주기 */}
-
               <div className="nameWrapper">
                 <Input
                   className="firstNameInput"
@@ -107,6 +106,7 @@ const SignUp = () => {
                 이용 약관에 동의합니다 (필수)
               </CheckBox>
               {/* 전체 스크롤 창 */}
+              {/* 여기부터 css 주기 */}
               <div className="scrollWrapper">
                 <div className="scrollLetterWrapper">
                   <p>
