@@ -1,0 +1,110 @@
+.payMent {
+  height: 100vh;
+  .logoWrapper {
+    margin: 20px 0;
+    .esopLogo {
+      margin-left: 30px;
+      width: 110px;
+      height: 40px;
+      cursor: pointer;
+    }
+  }
+
+  .mockdataContainer {
+    background-color: #ebeade;
+    line-height: 1.33;
+    font-size: 16px;
+    .orderList {
+      margin: 0 30px;
+
+      .orderListHandler {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+        cursor: pointer;
+        svg {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .orderListLetter {
+        font-size: 1.5em;
+      }
+      .totalPriceLetter {
+        align-self: end;
+        margin-right: 20px;
+        margin-left: auto;
+        font-size: 1.25em;
+      }
+    }
+    .priceDetailWrapper {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+
+      dl {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .priceDetailLetterWrapper {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+
+    .productDetailContainer {
+      border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+      .productDetailWrapper {
+        display: flex;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+        .imgWrapper {
+          width: 70px;
+          min-width: 70px;
+          height: 75px;
+          margin-right: 10px;
+          .productImg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .productDetailLetter {
+          flex-grow: 1;
+          .upSideDetail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            .quantityWrapper {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 60px;
+              height: 38px;
+              border: 1px solid;
+            }
+          }
+          .downSideDetail {
+            display: flex;
+            justify-content: end;
+            font-size: 9px;
+            opacity: 0.5;
+          }
+          .middleSideDetail {
+            display: flex;
+            justify-content: space-between;
+            span {
+              font-size: 0.875em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
