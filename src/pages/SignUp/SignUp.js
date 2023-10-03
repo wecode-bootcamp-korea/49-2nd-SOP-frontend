@@ -1,9 +1,9 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MdClose, MdArrowBack } from 'react-icons/md';
 import Input from '../../components/Input/Input';
 import CheckBox from '../../components/CheckBox/CheckBox';
-
 import './SignUp.scss';
 
 const SignUp = props => {
@@ -248,6 +248,6 @@ const SignUp = props => {
           <div onClick={() => setIsModalOpen(false)}>1234</div>)} */}
     </div>
   );
-};
+
 
 export default SignUp;

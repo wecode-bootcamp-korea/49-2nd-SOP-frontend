@@ -41,6 +41,7 @@ const Login = props => {
     setShowPassword(!showPassword);
   };
 
+
   const handleLogin = () => {
     if (email === '') {
       alert('이메일을 입력해주세요');
@@ -72,23 +73,19 @@ const Login = props => {
         }
       });
   };
-
+  
   return (
     <div className="login">
       <div className="loginModal">
-        {/*로그인 모달페이지 */}
         <div className="loginScreen">
-          {/*로그인 만든거 페이지 */}
           <div className="goBackButton">
             <MdClose className="closeButton" onClick={handleModalopen} />
           </div>
           <div className="loginContent">
-            {/*x버튼 빠진 전체 랩퍼 */}
             <div className="loginLetter">
               <h1>로그인</h1>
             </div>
             <div className="inputAndButtonWrapper">
-              {/*이메일/비밀번호/로그인 랩퍼 */}
               <div className="emailWrapper">
                 <Input
                   className="emailInput"

@@ -1,6 +1,7 @@
 @import '../../styles/mixin.scss';
 
 .login {
+
   position: fixed;
   z-index: 1400;
   width: 100%;
@@ -17,7 +18,7 @@
     background-color: rgba(0, 0, 0, 0.2);
     left: 0;
   }
-
+  
   .loginModal {
     overflow-y: auto;
     position: relative;
@@ -31,8 +32,10 @@
     }
 
     .loginScreen {
+
       display: flex;
       flex-direction: column;
+
       max-width: 600px;
       height: auto;
       margin: auto;
@@ -90,6 +93,7 @@
             padding-top: 25px;
             font-family: 'Suisse Regular', sans-serif;
             margin-bottom: 25px;
+
           }
           .passwordWrapper {
             position: relative;
@@ -99,6 +103,7 @@
             .viewPassword {
               @include viewPasswordButton;
             }
+            
           }
           .loginButton {
             @include loginAndSignupButton;
@@ -125,11 +130,3 @@
   }
 }
 
-// .background {
-//   position: fixed;
-
-//   background: black;
-//   width: 100%;
-//   height: 100vh;
-//   z-index: 999;
-// }

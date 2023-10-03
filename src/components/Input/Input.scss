@@ -1,3 +1,4 @@
+
 .inputContainer {
   position: relative;
   width: 100%;
@@ -31,17 +32,12 @@
       font-size 0.2s;
   }
 
-  // .input:focus ~ .inputLabel,
-  // .input:valid ~ .inputLabel {
-  //   top: -20px;
-  //   font-size: 12px;
-  // }
-  /*인풋에 아무런 동작을 하지않을때 (화면에 보여질때)*/
+ 
   .input:placeholder-shown + .inputLabel {
     visibility: hidden;
     transition: 0.1s ease-in-out;
   }
-  /*인풋에 클릭을했을때 )*/
+ 
   .input:not(:placeholder-shown) + .inputLabel,
   .input:focus:not(:placeholder-shown) + .inputLabel {
     visibility: visible;
@@ -51,3 +47,4 @@
     transition: 0.2s ease-in-out transform;
   }
 }
+
