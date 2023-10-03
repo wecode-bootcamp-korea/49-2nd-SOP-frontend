@@ -5,6 +5,7 @@ import Hair from './pages/Hair/Hair';
 import DetailPage from './pages/DetailPage/DetailPage';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
+import PayMent from './pages/PayMent/PayMent';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Router = () => {
@@ -17,6 +18,7 @@ const Router = () => {
         <Route path="/detailPage/:id" element={<DetailPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
+        <Route path="/payMent" element={<PayMent />} />
       </Routes>
       <Footer />
     </BrowserRouter>

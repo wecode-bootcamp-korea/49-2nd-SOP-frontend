@@ -19,6 +19,7 @@ const Login = props => {
 
   const handleSignUpModalOpen = () => {
     setIsModalSignUpOpen(!isModalSignUpOpen);
+    // handleModalopen();
 
     // setIsModalOpen(false);
   };
