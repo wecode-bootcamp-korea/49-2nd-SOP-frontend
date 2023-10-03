@@ -44,7 +44,7 @@ const Login = props => {
       alert('비밀번호를 입력해주세요');
       return;
     }
-    fetch('https://www.2sop.com/', {
+    fetch('http://10.58.52.240:8000/users/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

@@ -60,25 +60,25 @@ const SignUp = props => {
   // };
 
   const handleSignUp = () => {
-    // if (firstName === '' || firstName.length > 2) {
-    //   alert('성을 두글자 이내로 작성해주세요');
-    //   return;
-    // } else if (lastName === '' || lastName.length > 5) {
-    //   alert('이름을 다섯글자 이내로 작성해주세요');
-    //   return;
-    // } else if (!(email.includes('@') && email.includes('.')) || email === '') {
-    //   alert('이메일 형식이 틀렸습니다 (예:example123@naver.com)');
-    //   return;
-    // } else if (password === '' || password.length < 5) {
-    //   alert('비밀번호는 숫자, 소문자, 대문자, 특수문자, 5자 이상으로 해주세요');
-    //   return;
-    // } else if ((age && termsOfUse && privacy) === false) {
-    //   alert('필수사항을 체크해주세요');
-    //   return;
-    // } else if (!(password === checkPassword)) {
-    //   alert('비밀번호와 비밀번호확인이 다릅니다');
-    //   return;
-    // }
+    if (firstName === '' || firstName.length > 2) {
+      alert('성을 두글자 이내로 작성해주세요');
+      return;
+    } else if (lastName === '' || lastName.length > 5) {
+      alert('이름을 다섯글자 이내로 작성해주세요');
+      return;
+    } else if (!(email.includes('@') && email.includes('.')) || email === '') {
+      alert('이메일 형식이 틀렸습니다 (예:example123@naver.com)');
+      return;
+    } else if (password === '' || password.length < 5) {
+      alert('비밀번호는 숫자, 소문자, 대문자, 특수문자, 5자 이상으로 해주세요');
+      return;
+    } else if ((age && termsOfUse && privacy) === false) {
+      alert('필수사항을 체크해주세요');
+      return;
+    } else if (!(password === checkPassword)) {
+      alert('비밀번호와 비밀번호확인이 다릅니다');
+      return;
+    }
     fetch('http://10.58.52.240:8000/users/signUp', {
       method: 'POST',
       headers: {
@@ -98,7 +98,7 @@ const SignUp = props => {
           goToLogin();
         } else if (data.message === 'EXISTING_USER') {
           alert('이미 존재하는 이메일입니다');
-        } else if (data.message === 'NO_CHARACTERS') {
+        } else if (data.message === 'PASSWORD_NO_CHARACTERS') {
           alert(
             '비밀번호는 숫자, 소문자, 대문자, 특수문자, 5자 이상으로 해주세요',
           );
