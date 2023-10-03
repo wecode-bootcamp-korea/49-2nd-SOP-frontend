@@ -8,7 +8,6 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-
   // const [modalOpen, setIsModalOpen] = useState(false);
   // const handlemodalopen = () => {
   //   setIsModalOpen(!modalOpen);
@@ -34,7 +33,7 @@ const Login = () => {
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
-
+  
   const handleLogin = () => {
     if (email === '') {
       alert('이메일을 입력해주세요');
@@ -65,6 +64,7 @@ const Login = () => {
         });
     }*/
   };
+
 
   return (
     <div className="login">
@@ -104,7 +104,6 @@ const Login = () => {
                 </button>
               </div>
               <p>비밀번호 재설정하기</p>
-
               <button className="loginButton" onClick={handleLogin}>
                 로그인
               </button>
