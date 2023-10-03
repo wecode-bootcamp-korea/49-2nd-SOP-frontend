@@ -9,8 +9,10 @@ const Main = () => {
 
   useEffect(() => {
     fetch('/data/mainMockData.json')
-      .then(response => response.json())
-      .then(result => setProductList(result));
+      .then(res => res.json())
+      .then(data => {
+        setProductList(data);
+      });
   }, []);
 
   if (productList.length === 0) {

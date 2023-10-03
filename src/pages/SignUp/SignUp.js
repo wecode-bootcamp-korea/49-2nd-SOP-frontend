@@ -1,20 +1,31 @@
 import React, { useState } from 'react';
-import './SignUp.scss';
+import { useNavigate } from 'react-router-dom';
 import { MdClose, MdArrowBack } from 'react-icons/md';
 import Input from '../../components/Input/Input';
 import CheckBox from '../../components/CheckBox/CheckBox';
 
-const SignUp = () => {
+import './SignUp.scss';
+
+const SignUp = props => {
+  const { handleSignUpModalOpen } = props;
+  const navigate = useNavigate();
+  // 1. 사용자 입력 정보 객체 state 하나로 관리
+  // 2. set state는 하나의 함수로
+  // 2-1. 이때, 계산된 속성명으로 특정 key값만 업데이트할 수 있도록
+  // 2-2. input마다 onChange 이벤트에 일일이 이벤트 핸들러 함수를 전달하지 말고, 이벤트 위임 개념을 활용
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checkPassword, setCheckPassword] = useState('');
+
   const [age, setAge] = useState(false);
   const [termsOfUse, setTermsOfUse] = useState(false);
   const [privacy, setPrivacy] = useState(false);
   const [marketing, setMarketing] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleShowPassword = event => {
     event.preventDefault();
@@ -40,19 +51,76 @@ const SignUp = () => {
     setCheckPassword(e.target.value);
   };
 
+  const goToLogin = () => {
+    navigate('/login');
+  };
+
+  // const handleClose = () => {
+  //   navigate('/');
+  // };
+
+  const handleSignUp = () => {
+    // if (firstName === '' || firstName.length > 2) {
+    //   alert('성을 두글자 이내로 작성해주세요');
+    //   return;
+    // } else if (lastName === '' || lastName.length > 5) {
+    //   alert('이름을 다섯글자 이내로 작성해주세요');
+    //   return;
+    // } else if (!(email.includes('@') && email.includes('.')) || email === '') {
+    //   alert('이메일 형식이 틀렸습니다 (예:example123@naver.com)');
+    //   return;
+    // } else if (password === '' || password.length < 5) {
+    //   alert('비밀번호는 숫자, 소문자, 대문자, 특수문자, 5자 이상으로 해주세요');
+    //   return;
+    // } else if ((age && termsOfUse && privacy) === false) {
+    //   alert('필수사항을 체크해주세요');
+    //   return;
+    // } else if (!(password === checkPassword)) {
+    //   alert('비밀번호와 비밀번호확인이 다릅니다');
+    //   return;
+    // }
+    fetch('http://10.58.52.240:8000/users/signUp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === 'USER_CREATED') {
+          alert('회원가입이 완료되었습니다');
+          goToLogin();
+        } else if (data.message === 'EXISTING_USER') {
+          alert('이미 존재하는 이메일입니다');
+        } else if (data.message === 'NO_CHARACTERS') {
+          alert(
+            '비밀번호는 숫자, 소문자, 대문자, 특수문자, 5자 이상으로 해주세요',
+          );
+        } else if (data.message === 'INVALID_EMAIL') {
+          alert('이메일이 너무 짧습니다');
+        }
+      });
+  };
+
   return (
     <div className="signUp">
       <div className="signUpModal">
         <div className="signUpScreen">
           <div className="leftArrowAndBackButton">
-            <MdArrowBack className="goBackButton" />
-            <MdClose className="closeButton" />
+            <MdArrowBack className="goBackButton" onClick={goToLogin} />
+            <MdClose className="closeButton" onClick={handleSignUpModalOpen} />
           </div>
           <div className="signUpContent">
             <div className="signUpLetter">
-              <h1>회원가입</h1>
+              <h1 /*onClick={() => setIsModalOn(!isModalOn)}*/>회원가입</h1>
             </div>
-            <form className="inputAndButtonWrappper">
+            <div className="inputAndButtonWrappper">
               <div className="nameWrapper">
                 <Input
                   className="firstNameInput"
@@ -105,8 +173,6 @@ const SignUp = () => {
               <CheckBox checked={termsOfUse} onChange={setTermsOfUse}>
                 이용 약관에 동의합니다 (필수)
               </CheckBox>
-              {/* 전체 스크롤 창 */}
-              {/* 여기부터 css 주기 */}
               <div className="scrollWrapper">
                 <div className="scrollLetterWrapper">
                   <p>
@@ -167,15 +233,19 @@ const SignUp = () => {
                 </div>
               </div>
               <div className="signUpButtonWrapper">
-                <button className="signUpBtn">회원가입</button>
+                <button className="signUpBtn" onClick={handleSignUp}>
+                  회원가입
+                </button>
               </div>
-            </form>
-            <button className="alreadyHaveId">
+            </div>
+            <button className="alreadyHaveId" onClick={goToLogin}>
               이미 이솝 계정을 가지고 계십니까?
             </button>
           </div>
         </div>
       </div>
+      {/* {isModalOn && (
+          <div onClick={() => setIsModalOpen(false)}>1234</div>)} */}
     </div>
   );
 };
