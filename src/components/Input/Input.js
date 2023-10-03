@@ -4,6 +4,7 @@ const Input = props => {
   const { className, type, placeholder, onChange, value } = props;
 
   return (
+
     <div className="inputContainer">
       <input
         className={`input ${className}`}
