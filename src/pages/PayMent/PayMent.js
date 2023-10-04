@@ -9,15 +9,17 @@ const PayMent = () => {
   const [lastName, setLastName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [address, setAddress] = useState('');
+  const [nation, setNation] = useState('');
   const [detailAddress, setdetailAddress] = useState('');
   const [productData, setProductData] = useState([]);
   const [productDetail, setProductDetail] = useState(false);
-
+  const [userData, setUserData] = useState({});
   useEffect(() => {
     fetch('/data/payMentData.json')
       .then(res => res.json())
       .then(data => {
-        setProductData(data);
+        setProductData(data.data);
+        setUserData(data.userData);
       });
   }, []);
 
@@ -47,6 +49,10 @@ const PayMent = () => {
 
   const saveReceiverDetailAddress = e => {
     setdetailAddress(e.target.value);
+  };
+
+  const saveReceiverNation = e => {
+    setNation(e.target.value);
   };
 
   const handlePayMent = event => {
@@ -82,7 +88,7 @@ const PayMent = () => {
         firstName: firstName,
         lastName: lastName,
         phoneNumber: phoneNumber,
-        // nation: nation,
+        nation: nation,
         address: address,
         detailAddress: detailAddress,
       }),
@@ -203,8 +209,10 @@ const PayMent = () => {
             <h2>주문자 정보</h2>
           </div>
           <div>
-            <div>{productData.firstName}님</div>
-            <div>tnsdn10@naver.com</div>
+            <div>
+              {userData.firstName} {userData.lastName}님
+            </div>
+            <div>{userData.email}</div>
           </div>
         </div>
       </div>
@@ -240,12 +248,10 @@ const PayMent = () => {
               />
             </div>
             <div className="nationContainer">
-              <label className="nationSelect">
-                <select>
-                  <option>대한민국</option>
-                  <option>나열되지않은 국가</option>
-                </select>
-              </label>
+              <select onChange={saveReceiverNation} value={nation}>
+                <option>대한민국</option>
+                <option>나열되지않은 국가</option>
+              </select>
             </div>
             <div className="addressContainer">
               <Input
@@ -260,13 +266,15 @@ const PayMent = () => {
               <Input
                 className="detailAddressInput"
                 type="text"
-                placeholder="상세주소"
+                placeholder="상세주소(아파트 동.호수, 일반주택 등)"
                 value={detailAddress}
                 onChange={saveReceiverDetailAddress}
               />
             </div>
           </div>
-          <button onClick={handlePayMent}>결제하기로 이동</button>
+          <div className="buttonWrapper">
+            <button onClick={handlePayMent}>결제하기로 이동</button>
+          </div>
         </form>
       </div>
     </div>

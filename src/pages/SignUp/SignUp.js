@@ -7,7 +7,7 @@ import CheckBox from '../../components/CheckBox/CheckBox';
 import './SignUp.scss';
 
 const SignUp = props => {
-  const { handleSignUpModalOpen } = props;
+  const { handleSignUpModalOpen, handleModalopen } = props;
   const navigate = useNavigate();
   // 1. 사용자 입력 정보 객체 state 하나로 관리
   // 2. set state는 하나의 함수로
@@ -113,8 +113,11 @@ const SignUp = props => {
       <div className="signUpModal">
         <div className="signUpScreen">
           <div className="leftArrowAndBackButton">
-            <MdArrowBack className="goBackButton" onClick={goToLogin} />
-            <MdClose className="closeButton" onClick={handleSignUpModalOpen} />
+            <MdArrowBack
+              className="goBackButton"
+              onClick={handleSignUpModalOpen}
+            />
+            <MdClose className="closeButton" onClick={handleModalopen} />
           </div>
           <div className="signUpContent">
             <div className="signUpLetter">

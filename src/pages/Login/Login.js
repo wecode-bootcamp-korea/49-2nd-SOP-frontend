@@ -69,60 +69,72 @@ const Login = props => {
   };
 
   return (
-    <div className="login">
-      <div className="loginModal">
-        <div className="loginScreen">
-          <div className="goBackButton">
-            <MdClose className="closeButton" onClick={handleModalopen} />
-          </div>
-          <div className="loginContent">
-            <div className="loginLetter">
-              <h1>로그인</h1>
-            </div>
-            <div className="inputAndButtonWrapper">
-              <div className="emailWrapper">
-                <Input
-                  className="emailInput"
-                  type="email"
-                  placeholder="이메일 주소"
-                  value={email}
-                  onChange={saveUserEmail}
-                />
+    <div>
+      {isModalSignUpOpen ? (
+        <div className="modal">
+          <SignUp
+            handleSignUpModalOpen={handleSignUpModalOpen}
+            handleModalopen={handleModalopen}
+          />
+        </div>
+      ) : (
+        <div className="login">
+          <div className="loginModal">
+            <div className="loginScreen">
+              <div className="goBackButton">
+                <MdClose className="closeButton" onClick={handleModalopen} />
               </div>
-              <div className="passwordWrapper">
-                <Input
-                  className="passwordInput"
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="비밀번호"
-                  onChange={saveUserPassword}
-                  value={password}
-                />
-                <button className="viewPassword" onClick={handleShowPassword}>
-                  {showPassword ? '숨기기' : '보기'}
+              <div className="loginContent">
+                <div className="loginLetter">
+                  <h1>로그인</h1>
+                </div>
+                <div className="inputAndButtonWrapper">
+                  <div className="emailWrapper">
+                    <Input
+                      className="emailInput"
+                      type="email"
+                      placeholder="이메일 주소"
+                      value={email}
+                      onChange={saveUserEmail}
+                    />
+                  </div>
+                  <div className="passwordWrapper">
+                    <Input
+                      className="passwordInput"
+                      type={showPassword ? 'text' : 'password'}
+                      placeholder="비밀번호"
+                      onChange={saveUserPassword}
+                      value={password}
+                    />
+                    <button
+                      className="viewPassword"
+                      onClick={handleShowPassword}
+                    >
+                      {showPassword ? '숨기기' : '보기'}
+                    </button>
+                  </div>
+                  <p>비밀번호 재설정하기</p>
+                  <button className="loginButton" onClick={handleLogin}>
+                    로그인
+                  </button>
+                </div>
+              </div>
+              <h2>회원이 아니신가요?</h2>
+              <p className="signupExplanation">
+                회원가입을 통해 주문 내역을 확인하고, 위시리스트에 관심제품을
+                저장하거나, 저장된 정보를 사용하여 더 빠른 온라인 결제 경험을
+                즐기실 수 있습니다
+              </p>
+              <div className="signupButtonWrapper">
+                <button
+                  className="signupButton"
+                  onClick={handleSignUpModalOpen}
+                >
+                  회원가입
                 </button>
               </div>
-              <p>비밀번호 재설정하기</p>
-              <button className="loginButton" onClick={handleLogin}>
-                로그인
-              </button>
             </div>
           </div>
-          <h2>회원이 아니신가요?</h2>
-          <p className="signupExplanation">
-            회원가입을 통해 주문 내역을 확인하고, 위시리스트에 관심제품을
-            저장하거나, 저장된 정보를 사용하여 더 빠른 온라인 결제 경험을 즐기실
-            수 있습니다
-          </p>
-          <div className="signupButtonWrapper">
-            <button className="signupButton" onClick={handleSignUpModalOpen}>
-              회원가입
-            </button>
-          </div>
-        </div>
-      </div>
-      {isModalSignUpOpen && (
-        <div className="modal">
-          <SignUp handleSignUpModalOpen={handleSignUpModalOpen} />
         </div>
       )}
     </div>
