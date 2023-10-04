@@ -6,16 +6,19 @@
     "productImage": "https://i.postimg.cc/hPnkxWL1/glass-4108085-1280.jpg",
     "size": "50ml",
     "price": 150000,
-    "quantity": 2
+    "quantity": 2,
+    "firstName": "권",
+    "lastName": "순우",
+    "email": "tnsdn@naver.com"
   },
   {
     "cartId": 2,
-    "productId": 1,
+    "productId": 2,
     "productName": "테싯 오 드 퍼퓸",
     "productImage": "https://i.postimg.cc/hPnkxWL1/glass-4108085-1280.jpg",
     "size": "100ml",
     "price": 200000,
-    "quantity": 1
+    "quantity": 4
   },
   {
     "cartId": 3,
