@@ -1,6 +1,7 @@
 import React from 'react';
 import './RecieverCheck.scss';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CheckBox from '../../components/CheckBox/CheckBox';
 import { HOST } from '../../components/Variable';
 
@@ -8,6 +9,11 @@ const RecieverCheck = () => {
   const [productData, setProductData] = useState([]);
   const [recieverData, setRecieverData] = useState({});
   const [paymentCheck, setPayMentCheck] = useState(false);
+
+  const navigate = useNavigate();
+  const goToPayMentCheck = () => {
+    navigate('/payMentCheck');
+  };
 
   useEffect(() => {
     fetch('/data/recieverCheckData.json')
@@ -19,11 +25,15 @@ const RecieverCheck = () => {
   }, []);
 
   const handlePay = () => {
-    fetch(`${HOST}/users`, {
+    if (paymentCheck === false) {
+      alert('필수사항을 체크해주세요');
+      return;
+    }
+    fetch(`${HOST}/order/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        authorization: '토큰',
+        authorization: localStorage.getItem('loginToken'),
       },
       body: JSON.stringify({
         totalPrice: totalPrice(),
@@ -32,6 +42,8 @@ const RecieverCheck = () => {
       .then(response => response.json())
       .then(data => {
         if (data.message === 'USER_CREATED') {
+          alert('결제가 완료되었습니다');
+          goToPayMentCheck();
         }
       });
   };
@@ -56,7 +68,6 @@ const RecieverCheck = () => {
             </div>
           </div>
           <div>
-            {/* 두쨰줄 */}
             <div className="priceDetailWrapper">
               <dl>
                 <div className="priceDetailLetterWrapper">
@@ -116,7 +127,6 @@ const RecieverCheck = () => {
                             <span>{quantity}개</span>
                           </div>
                         </div>
-
                         <div className="middleSideDetail">
                           <span>{size}</span>
                           <span>₩{(price * quantity).toLocaleString()}</span>
@@ -134,22 +144,24 @@ const RecieverCheck = () => {
             </div>
             <div className="priceDetailWrapper">
               <dl>
-                <div className="priceDetailLetterWrapper">
+                <div className="priceDetailLetterWrapperUnder">
                   <span>소계 (세금 포함)</span>
                   <span>₩{totalPrice().toLocaleString()}</span>
                 </div>
-                <div className="priceDetailLetterWrapper">
+                <div className="priceDetailLetterWrapperUnder">
                   <span>배송 방법 - 무료 배송</span>
                   <span>₩0</span>
                 </div>
-                <div className="priceDetailLetterWrapper">
+                <div className="priceDetailLetterWrapperUnder">
                   <span>포함된세금</span>
                   <span>₩0</span>
                 </div>
               </dl>
-              <div className="priceDetailLetterWrapper">
+              <div className="priceTotalWrapper">
                 <span>합계</span>
-                <span>₩{totalPrice().toLocaleString()}</span>
+                <span>
+                  <h1>₩{totalPrice().toLocaleString()}</h1>
+                </span>
               </div>
             </div>
           </div>

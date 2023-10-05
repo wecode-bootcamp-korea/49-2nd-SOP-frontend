@@ -43,7 +43,7 @@ const Login = props => {
       alert('비밀번호를 입력해주세요');
       return;
     }
-    fetch(`${HOST}/users`, {
+    fetch(`${HOST}/users/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -57,7 +57,8 @@ const Login = props => {
       .then(data => {
         if (data.message === 'LOGIN_SUCCESS') {
           alert('로그인이 성공했습니다');
-          localStorage.setItem('token', data.accessToken);
+          localStorage.setItem('loginToken', data.token);
+          handleModalopen();
           goToMain();
         } else if (data.message === 'NOT_REGISTERED') {
           alert('이메일이 존재하지않습니다');
