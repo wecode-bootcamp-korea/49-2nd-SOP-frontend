@@ -69,7 +69,7 @@ const SignUp = props => {
       alert('비밀번호와 비밀번호확인이 다릅니다');
       return;
     }
-    fetch(`${HOST}/users`, {
+    fetch(`${HOST}/users/signUp`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
