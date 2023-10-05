@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import './Hair.scss';
 import Itembox from '../../components/Itembox/Itembox';
 
@@ -15,12 +14,12 @@ const Hair = () => {
   }, []);
 
   return (
-    <div className="HairPage">
-      <div className="HairTop">
+    <div className="hairPage">
+      <div className="hairTop">
         <img className="esopLogo" src="/images/2sop.png" alt="이솝로고" />
-        <h1 className="HairTopName">샴푸</h1>
+        <h1 className="hairTopName">샴푸</h1>
       </div>
-      <div className="HairMiddle">
+      <div className="hairMiddle">
         <div className="hairText">
           <div className="hairBoldText">두피가 건강해야 모발이 건강합니다</div>
 
@@ -34,11 +33,10 @@ const Hair = () => {
           <Itembox
             key={tab.id}
             id={tab.id}
-            itemoptions={tab.options}
-            itemname={tab.name}
-            itemtype={tab.suited_to}
-            itemaroma={tab.aroma}
-            itemprice={tab.price}
+            itemOptions={tab.options}
+            itemName={tab.name}
+            itemType={tab.suited_to}
+            itemAroma={tab.aroma}
           />
         ))}
       </div>

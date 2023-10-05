@@ -2,8 +2,8 @@
 
 body {
   background-color: $Beige;
-  .HairPage {
-    .HairTop {
+  .hairPage {
+    .hairTop {
       padding-top: 80px;
       margin-left: 40px;
       width: 100%;
@@ -18,15 +18,13 @@ body {
         font-weight: normal;
       }
     }
-    .HairMiddle {
+    .hairMiddle {
       background-color: #f6f5e8;
       margin-top: 100px;
       display: grid;
       justify-content: center;
       grid-template-columns: repeat(3, auto);
       grid-template-rows: auto;
-
-      // grid-gap: 10px;
       margin-bottom: 50px;
       .hairText {
         width: 500px;

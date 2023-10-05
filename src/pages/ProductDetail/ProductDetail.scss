@@ -1,0 +1,140 @@
+@import '../../styles/variable.scss';
+
+body {
+  background-color: $Beige;
+
+  .productPage {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    gap: 100px;
+
+    .productModalBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f1f0e8;
+      position: absolute;
+      color: black;
+      width: 800px;
+      height: 100%;
+    }
+
+    .productPageTop {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .productLeft {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+
+      .productImg {
+        max-width: 600px;
+        max-height: 600px;
+      }
+    }
+    .productRight {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      width: 30vw;
+      gap: 15px;
+      color: #333;
+
+      .productCategory {
+        &:hover {
+          text-decoration: underline;
+          text-decoration-thickness: 0.5px;
+          text-underline-position: under;
+        }
+      }
+      .productName {
+        font-size: 2rem;
+        font-weight: normal;
+      }
+      .productParagraph {
+        display: flex;
+        line-height: 1.4;
+      }
+      .productPrice {
+        font-size: 24px;
+      }
+      .productCartButton {
+        width: 30vw;
+        height: 60px;
+        background-color: black;
+        color: white;
+      }
+      .hairType {
+        margin-top: 24px;
+        padding-top: 14px;
+        border-top: 2px solid #4a4a4a;
+        font-weight: bold;
+      }
+      .hairParagraph {
+        color: #666;
+        line-height: 1.4;
+      }
+      .aromaType {
+        padding-top: 14px;
+        border-top: 1px solid #d5d4c9;
+        font-weight: bold;
+      }
+      .aromaTypeButton {
+        border-top: 1px solid #d5d4c9;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+
+        .aromaIngredients {
+          padding-top: 14px;
+
+          font-weight: bold;
+        }
+        .aromaButton {
+          border-radius: 20px;
+        }
+      }
+      .detailSizeName {
+        display: flex;
+        .itemRadio {
+          display: flex;
+        }
+      }
+    }
+
+    .productPageBottom {
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: normal;
+      }
+      .productInfTable {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: auto;
+        width: 40%;
+        height: 50%;
+        .productInfTableBoxBlack {
+          display: flex;
+          padding: 20px;
+          background-color: #ebeade;
+          border: solid 1px #f7f6ed;
+          min-width: 220px;
+        }
+        .productInfTableBoxWhite {
+          display: flex;
+          padding: 20px;
+          border: solid 1px #f7f6ed;
+          min-width: 220px;
+        }
+      }
+    }
+  }
+}
