@@ -15,7 +15,7 @@ const Header = () => {
       </div>
       <div>
         <NavButton to="/login">로그인</NavButton>
-        <NavButton to="/cart">카트</NavButton>
+        <NavButton to="/Basket">카트</NavButton>
       </div>
     </header>
   );

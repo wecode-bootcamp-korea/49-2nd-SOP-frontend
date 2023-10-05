@@ -9,10 +9,17 @@
   width: 440px;
   height: 800px;
   background-color: $Beige;
+  &:hover {
+    .productName {
+      text-decoration: underline;
+    }
+
+    cursor: pointer;
+  }
 
   img {
-    width: 500px;
-    height: 700px;
+    width: 300px;
+    height: 400px;
   }
 
   .productName {

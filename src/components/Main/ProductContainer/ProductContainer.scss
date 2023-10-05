@@ -10,7 +10,8 @@
   background-color: $Beige;
 
   .productSlider {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6, 400px);
     align-items: center;
     transition: transform 0.5s;
   }
