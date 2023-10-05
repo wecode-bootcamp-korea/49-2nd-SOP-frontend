@@ -16,14 +16,14 @@ const PayMent = () => {
   const [userData, setUserData] = useState({});
   const [productDetail, setProductDetail] = useState(false);
 
-  useEffect(() => {
-    fetch('/data/payMentData.json')
-      .then(res => res.json())
-      .then(data => {
-        setProductData(data.data);
-        setUserData(data.userData);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('/data/payMentData.json')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setProductData(data.data);
+  //       setUserData(data.userData);
+  //     });
+  // }, []);
 
   const navigate = useNavigate();
   const goToMain = () => {
@@ -82,27 +82,32 @@ const PayMent = () => {
     } else if (detailAddress === '') {
       alert('세부주소를 작성해주세요');
       return;
+    } else if (nation === '') {
+      alert('국가를 선택해주세요');
     }
 
-    fetch(`${HOST}/users`, {
+    fetch(`${HOST}/order/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        authorization: '토큰',
+        authorization: localStorage.getItem('loginToken'),
       },
       body: JSON.stringify({
+        cartId: productData.cartId,
         firstName: firstName,
         lastName: lastName,
         phoneNumber: phoneNumber,
-        nation: nation,
+        country: nation,
         address: address,
-        detailAddress: detailAddress,
+        detailedAddress: detailAddress,
       }),
     })
       .then(response => response.json())
       .then(data => {
-        if (data.message === 'USER_CREATED') {
+        if (data.message === 'ORDER_CREATED') {
           goToRecieverCheck();
+        } else if (data.message === 'SHIPMENT_NOT_FOUND') {
+          alert('');
         }
       });
   };
@@ -253,6 +258,7 @@ const PayMent = () => {
             </div>
             <div className="nationContainer">
               <select onChange={saveReceiverNation} value={nation}>
+                <option selected>국가를 선택하세요</option>
                 <option>대한민국</option>
                 <option>나열되지않은 국가</option>
               </select>
@@ -278,7 +284,6 @@ const PayMent = () => {
           </div>
           <div className="buttonWrapper">
             <button onClick={handlePayMent}>결제하기로 이동</button>
-            <button onClick={goToRecieverCheck}>임시버튼</button>
           </div>
         </form>
       </div>
