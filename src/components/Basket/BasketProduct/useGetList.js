@@ -1,12 +1,19 @@
+import { HOST } from '../../Variable';
 import { useEffect, useState } from 'react';
 
 const useGetList = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     setLoading(true);
-    fetch('/data/basketMockData.json')
-      .then(res => res.json())
+    fetch(`${HOST}/cart`, {
+      method: 'GET',
+      headers: {
+        authorization: localStorage.getItem('loginToken'),
+      },
+    })
+      .then(response => response.json())
       .then(result => {
         setLoading(false);
         setList(result);
