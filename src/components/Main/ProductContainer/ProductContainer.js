@@ -6,8 +6,8 @@ import './ProductContainer.scss';
 const ProductContainer = ({ productList }) => {
   const [count, setCount] = useState(0);
   const handlePlus = () => {
-    if (count === 3) {
-      setCount(3);
+    if (count === productList.length - 3) {
+      setCount(productList.length - 3);
     } else {
       setCount(count + 1);
     }
@@ -24,7 +24,7 @@ const ProductContainer = ({ productList }) => {
     <div className="productContainer">
       <div
         className="productSlider"
-        style={{ transform: `translateX(${count * -360}px)` }}
+        style={{ transform: `translateX(${count * -350}px)` }}
       >
         {productList.map(info => {
           return <Product key={info.productId} info={info} />;

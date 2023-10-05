@@ -22,7 +22,7 @@ const Header = () => {
         <div className="handleModal" onClick={handleModalopen}>
           로그인
         </div>
-        <NavButton to="/cart">카트</NavButton>
+        <NavButton to="/Basket">카트</NavButton>
       </div>
       {isModalOpen && (
         <div className="modal">

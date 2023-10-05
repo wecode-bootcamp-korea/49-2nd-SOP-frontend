@@ -2,6 +2,7 @@ import React from 'react';
 import './RecieverCheck.scss';
 import { useState, useEffect } from 'react';
 import CheckBox from '../../components/CheckBox/CheckBox';
+import { HOST } from '../../components/Variable';
 
 const RecieverCheck = () => {
   const [productData, setProductData] = useState([]);
@@ -18,7 +19,7 @@ const RecieverCheck = () => {
   }, []);
 
   const handlePay = () => {
-    fetch('http://10.58.52.240:8000/users/signUp', {
+    fetch(`${HOST}/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

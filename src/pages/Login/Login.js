@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../../components/Input/Input';
 import SignUp from '../SignUp/SignUp';
 import './Login.scss';
+import { HOST } from '../../components/Variable';
 
 const Login = props => {
-  const { handleModalopen /*setIsModalOpen*/ } = props;
+  const { handleModalopen } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -14,8 +15,6 @@ const Login = props => {
 
   const handleSignUpModalOpen = () => {
     setIsModalSignUpOpen(!isModalSignUpOpen);
-    // handleModalopen();
-    // setIsModalOpen(false);
   };
 
   const navigate = useNavigate();
@@ -44,7 +43,7 @@ const Login = props => {
       alert('비밀번호를 입력해주세요');
       return;
     }
-    fetch('http://10.58.52.240:8000/users/', {
+    fetch(`${HOST}/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',

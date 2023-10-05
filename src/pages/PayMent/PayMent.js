@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { HiChevronUp, HiChevronDown } from 'react-icons/hi2';
 import './PayMent.scss';
 import Input from '../../components/Input/Input';
+import { HOST } from '../../components/Variable';
 
 const PayMent = () => {
   const [firstName, setFirstName] = useState('');
@@ -83,32 +84,29 @@ const PayMent = () => {
       return;
     }
 
-    // fetch('http://10.58.52.240:8000/users/signUp', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json;charset=utf-8',
-    //     authorization: '토큰',
-    //   },
-    //   body: JSON.stringify({
-    //     firstName: firstName,
-    //     lastName: lastName,
-    //     phoneNumber: phoneNumber,
-    //     nation: nation,
-    //     address: address,
-    //     detailAddress: detailAddress,
-    //   }),
-    // })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     if (data.message === 'USER_CREATED') {
-    //       goToRecieverCheck();
-    //     }
-    //   });
+    fetch(`${HOST}/users`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        authorization: '토큰',
+      },
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        phoneNumber: phoneNumber,
+        nation: nation,
+        address: address,
+        detailAddress: detailAddress,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === 'USER_CREATED') {
+          goToRecieverCheck();
+        }
+      });
   };
 
-  // 맵으로 돌린 부분보다 윗부분에서 총합 금액 구하는식인데
-  // for (const product of mockdata) 에서 product가 의미하는것은
-  // mockdata의 배열의 첫번째 요소가 product라는 변수안에 할당된다는것이다
   const totalPrice = () => {
     let totalCost = 0;
     for (const product of productData) {

@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Hair from './pages/Hair/Hair';
 import DetailPage from './pages/DetailPage/DetailPage';
+import Basket from './pages/Basket/Basket';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import PayMent from './pages/PayMent/PayMent';
@@ -21,6 +22,7 @@ const Router = () => {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/payMent" element={<PayMent />} />
         <Route path="/recieverCheck" element={<RecieverCheck />} />
+        <Route path="/basket" element={<Basket />} />
       </Routes>
       <Footer />
     </BrowserRouter>

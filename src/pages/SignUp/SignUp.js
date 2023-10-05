@@ -3,29 +3,23 @@ import { useNavigate } from 'react-router-dom';
 import { MdClose, MdArrowBack } from 'react-icons/md';
 import Input from '../../components/Input/Input';
 import CheckBox from '../../components/CheckBox/CheckBox';
+import { HOST } from '../../components/Variable';
 
 import './SignUp.scss';
 
 const SignUp = props => {
   const { handleSignUpModalOpen, handleModalopen } = props;
   const navigate = useNavigate();
-  // 1. 사용자 입력 정보 객체 state 하나로 관리
-  // 2. set state는 하나의 함수로
-  // 2-1. 이때, 계산된 속성명으로 특정 key값만 업데이트할 수 있도록
-  // 2-2. input마다 onChange 이벤트에 일일이 이벤트 핸들러 함수를 전달하지 말고, 이벤트 위임 개념을 활용
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checkPassword, setCheckPassword] = useState('');
-
   const [age, setAge] = useState(false);
   const [termsOfUse, setTermsOfUse] = useState(false);
   const [privacy, setPrivacy] = useState(false);
   const [marketing, setMarketing] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
-  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleShowPassword = event => {
     event.preventDefault();
@@ -55,10 +49,6 @@ const SignUp = props => {
     navigate('/login');
   };
 
-  // const handleClose = () => {
-  //   navigate('/');
-  // };
-
   const handleSignUp = () => {
     if (firstName === '' || firstName.length > 2) {
       alert('성을 두글자 이내로 작성해주세요');
@@ -79,7 +69,7 @@ const SignUp = props => {
       alert('비밀번호와 비밀번호확인이 다릅니다');
       return;
     }
-    fetch('http://10.58.52.240:8000/users/signUp', {
+    fetch(`${HOST}/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -121,7 +111,7 @@ const SignUp = props => {
           </div>
           <div className="signUpContent">
             <div className="signUpLetter">
-              <h1 /*onClick={() => setIsModalOn(!isModalOn)}*/>회원가입</h1>
+              <h1>회원가입</h1>
             </div>
             <div className="inputAndButtonWrappper">
               <div className="nameWrapper">
@@ -247,8 +237,6 @@ const SignUp = props => {
           </div>
         </div>
       </div>
-      {/* {isModalOn && (
-          <div onClick={() => setIsModalOpen(false)}>1234</div>)} */}
     </div>
   );
 };
