@@ -7,23 +7,21 @@ const Itembox = ({ id, itemOptions, itemName, itemType, itemAroma }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [userCartItem, setuserCartItem] = useState(0);
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   fetch('/data/backData.json', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       product_Id: userCartItem,
-  //     }),
-  //   }) //요청
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log(data);
-  //     });
 
-  //   // console.log(data)
-  // }, []);
+  useEffect(() => {
+    fetch('/data/backData.json', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        product_Id: userCartItem,
+      }),
+    }) //요청
+      .then(response => response.json())
+      .then(data => {});
+  }, []);
+
   const handleRadioButton = id => {
     setRadioButton(id);
   };
@@ -56,9 +54,9 @@ const Itembox = ({ id, itemOptions, itemName, itemType, itemAroma }) => {
       <div className="itemSelect">
         {itemOptions.length === 1 || isHovered
           ? ''
-          : `${itemOptions.length}사이즈 / ₩${itemOptions[0].price
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원 부터`}
+          : `${
+              itemOptions.length
+            }사이즈 / ₩${itemOptions[0].price.toLocaleString()}원 부터`}
         {itemOptions.map(a =>
           itemOptions.length === 1 ? (
             <div className="sizeList" key={a.id}>
@@ -84,15 +82,12 @@ const Itembox = ({ id, itemOptions, itemName, itemType, itemAroma }) => {
         {itemOptions.length === 1
           ? itemOptions.map(a => (
               <div className="priceList" key={a.id}>
-                ₩{a.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                ₩{a.price.toLocaleString()}
               </div>
             ))
           : isHovered === true && (
               <div className="priceList" key={itemOptions[radioButton - 1].id}>
-                ₩
-                {itemOptions[radioButton - 1].price
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                ₩{itemOptions[radioButton - 1].price.toLocaleString()}
               </div>
             )}
       </div>
@@ -112,11 +107,9 @@ const Itembox = ({ id, itemOptions, itemName, itemType, itemAroma }) => {
             itemOptions.length === 1
               ? () => {
                   handleUserCart(itemOptions[0].id);
-                  console.log(itemOptions[0].id);
                 }
               : () => {
                   handleUserCart(radioButton);
-                  console.log(radioButton);
                 }
           }
         >

@@ -13,6 +13,10 @@ const Hair = () => {
       });
   }, []);
 
+  if (setItemList.length === 0) {
+    return null;
+  }
+
   return (
     <div className="hairPage">
       <div className="hairTop">

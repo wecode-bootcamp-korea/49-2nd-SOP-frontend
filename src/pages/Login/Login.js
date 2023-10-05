@@ -57,7 +57,7 @@ const Login = props => {
       .then(data => {
         if (data.message === 'LOGIN_SUCCESS') {
           alert('로그인이 성공했습니다');
-          localStorage.setItem('token', data.accessToken);
+          localStorage.setItem('token', data.token);
           goToMain();
         } else if (data.message === 'NOT_REGISTERED') {
           alert('이메일이 존재하지않습니다');
