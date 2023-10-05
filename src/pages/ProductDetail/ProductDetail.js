@@ -28,7 +28,7 @@ const ProductDetail = () => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        authorization: localStorage.getItem('loginToken'),
+        // authorization: localStorage.getItem('token'),
       },
     })
       .then(response => response.json())
@@ -37,9 +37,22 @@ const ProductDetail = () => {
       });
   }, []);
 
-  if (setItemDetail.length === 0) {
-    return null;
-  }
+  // useEffect(() => {
+  //   fetch('/data/backData.json', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       productId: 1,
+  //     }),
+  //   }) //요청
+  //     .then(response => response.json())
+  //     .then(data => {
+
+  //     });
+
+  // }, []);
 
   return (
     <div className="productPage">
