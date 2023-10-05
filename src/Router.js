@@ -2,7 +2,7 @@ import Main from './pages/Main/Main';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Hair from './pages/Hair/Hair';
-import DetailPage from './pages/DetailPage/DetailPage';
+import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Basket from './pages/Basket/Basket';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
@@ -18,7 +18,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/hair" element={<Hair />} />
-        <Route path="/detailPage/:id" element={<DetailPage />} />
+        <Route path="/hair/:id" element={<ProductDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/payMent" element={<PayMent />} />
