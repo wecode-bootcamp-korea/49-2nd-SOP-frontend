@@ -1,3 +1,134 @@
+@import '../../styles/mixin.scss';
+
 .signUp {
-  height: 200vh;
+  z-index: 1400;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  outline: none;
+
+  .signUpModal {
+    overflow-y: auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 50px 0;
+  }
+
+  .signUpScreen {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    height: auto;
+    margin: auto;
+    padding: 50px;
+    background-color: #fffef2;
+    border: 1px solid;
+    border-radius: 6px;
+
+    .leftArrowAndBackButton {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 42px;
+
+      .goBackButton,
+      .closeButton {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+      }
+    }
+
+    .signUpContent {
+      display: flex;
+      flex-direction: column;
+      margin-top: 40px;
+
+      .signUpLetter {
+        font-size: 30px;
+      }
+
+      .inputAndButtonWrappper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+
+        .nameWrapper {
+          display: flex;
+          padding-top: 25px;
+          margin-bottom: 35px;
+        }
+
+        .emailWrapper,
+        .passwordWrapper {
+          padding-top: 25px;
+          margin-bottom: 35px;
+        }
+
+        .passwordWrapper {
+          position: relative;
+
+          .viewPassword {
+            @include viewPasswordButton;
+          }
+        }
+
+        .passwordCheckWrapper {
+          margin-bottom: 35px;
+        }
+
+        .scrollWrapper {
+          height: 100px;
+          margin: 5px 0 15px;
+          border: 1px solid;
+          border-radius: 3px;
+
+          .scrollLetterWrapper {
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+            height: 100%;
+            padding: 10px 20px 10px 10px;
+
+            p {
+              margin-bottom: 30px;
+              font-size: 14px;
+              line-height: 1.6;
+              font-family: 'Suisse Regular', sans-serif;
+              color: #333;
+            }
+          }
+        }
+        .signUpButtonWrapper {
+          margin-top: 30px;
+
+          .signUpBtn {
+            width: 100%;
+            height: 60px;
+            padding: 19px 23px;
+            border: 1px solid;
+            border-color: #333;
+            background-color: #333;
+            cursor: pointer;
+            color: #f6f5e8;
+
+            &:hover {
+              background-color: black;
+            }
+          }
+        }
+      }
+      .alreadyHaveId {
+        width: 100%;
+        margin-top: 15px;
+        border: none;
+        background-color: transparent;
+        color: #666;
+        cursor: pointer;
+      }
+    }
+  }
 }

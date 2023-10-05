@@ -10,6 +10,7 @@ const DetailPage = () => {
   //       setItemDetail(data.data);
   //     });
   // }, []);
+
   return (
     <div className="productPageTop">
       <img
