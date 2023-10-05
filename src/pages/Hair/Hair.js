@@ -3,19 +3,23 @@ import './Hair.scss';
 import Itembox from '../../components/Itembox/Itembox';
 
 const Hair = () => {
-  const [itemList, setItemList] = useState([]);
+  const [itemList, setItemList] = useState({});
 
   useEffect(() => {
-    fetch('/data/detailData.json')
+    fetch('http://10.58.52.238:8000/product/hair')
       .then(response => response.json())
       .then(data => {
         setItemList(data.data);
+        console.log(data.data);
       });
   }, []);
 
-  if (setItemList.length === 0) {
-    return null;
-  }
+  const isEmpty = Object.keys(itemList).length > 0;
+  if (!isEmpty) return null;
+
+  // if (setItemList.length === 0) {
+  //   return null;
+  // }
 
   return (
     <div className="hairPage">
