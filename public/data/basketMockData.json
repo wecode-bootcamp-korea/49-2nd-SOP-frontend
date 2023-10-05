@@ -1,5 +1,6 @@
 [
   {
+    "cartId": 1,
     "productId": 1,
     "productName": "테싯 오 드 퍼퓸",
     "productImage": "https://i.postimg.cc/hPnkxWL1/glass-4108085-1280.jpg",
@@ -8,6 +9,7 @@
     "quantity": 1
   },
   {
+    "cartId": 2,
     "productId": 1,
     "productName": "테싯 오 드 퍼퓸",
     "productImage": "https://i.postimg.cc/hPnkxWL1/glass-4108085-1280.jpg",
@@ -16,6 +18,7 @@
     "quantity": 1
   },
   {
+    "cartId": 3,
     "productId": 2,
     "productName": "이더시스 오 드 퍼퓸",
     "productImage": "https://i.ibb.co/59k3wpy/shampoo-1860642-1280.png",

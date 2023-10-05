@@ -1,22 +1,16 @@
 import BasketHeader from '../../components/Basket/BasketHeader/BasketHeader';
 import BasketProduct from '../../components/Basket/BasketProduct/BasketProduct';
-import React, { useEffect, useState } from 'react';
+import { useGetList } from '../../components/Basket/BasketProduct/useGetList';
 import './Basket.scss';
 
 const Basket = () => {
-  const [basketList, setBasketList] = useState([]);
+  const { list, loading } = useGetList();
 
-  useEffect(() => {
-    fetch('/data/basketMockData.json')
-      .then(response => response.json())
-      .then(result => setBasketList(result));
-  }, []);
-
-  const totalPrice = basketList
+  const totalPrice = list
     .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
     .toLocaleString();
 
-  if (basketList.length === 0) {
+  if (loading) {
     return null;
   }
 
@@ -26,12 +20,17 @@ const Basket = () => {
         <img src="/images/2sop.png" alt="logo" className="logo" />
         <BasketHeader totalPrice={totalPrice} />
         <div>
-          {basketList.map((productInfo, index) => {
-            return <BasketProduct key={index} productInfo={productInfo} />;
+          {list.map(productInfo => {
+            return (
+              <BasketProduct
+                key={productInfo.cartId}
+                productInfo={productInfo}
+              />
+            );
           })}
         </div>
       </div>
-      <button className="payment">결제하러 가기</button>
+      <button className="order">주문하기</button>
     </div>
   );
 };

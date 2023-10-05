@@ -1,3 +1,5 @@
+export const HOST = 'http://10.58.52.136:8000';
+
 export const quantityArray = Array(10)
   .fill(1)
   .map((value, index) => value + index);

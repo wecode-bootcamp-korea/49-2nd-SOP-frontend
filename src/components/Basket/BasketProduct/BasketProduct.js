@@ -1,13 +1,43 @@
+import { useState } from 'react';
 import SelectQuantity from '../../SelectQuantity/SelectQuantity';
-import React, { useState } from 'react';
+import { HOST } from '../../Variable';
 import './BasketProduct.scss';
 
 const BasketProduct = ({ productInfo }) => {
-  const { productName, productImage, size, quantity, price } = productInfo;
-  const [selectQuantity, setSelectQuantity] = useState(quantity);
+  const { cartId, productName, productImage, size, price, quantity } =
+    productInfo;
+
+  const [productQuantity, setProductQuantity] = useState(quantity);
 
   const handleQuantity = event => {
-    setSelectQuantity(Number(event.target.value));
+    const { value } = event.target;
+    setProductQuantity(value);
+    fetch(`${HOST}/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: '',
+      },
+      body: JSON.stringify({
+        cartId,
+        quantity: value,
+      }),
+    })
+      .then(res => res.json())
+      .then();
+  };
+
+  const handleDelete = () => {
+    fetch(`${HOST}/delete`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: '',
+      },
+      body: JSON.stringify({
+        cartId,
+      }),
+    });
   };
 
   return (
@@ -19,16 +49,16 @@ const BasketProduct = ({ productInfo }) => {
       />
       <div>
         <div>{productName}</div>
-        <div>
+        <div className="productInfo">
           <div>{size}</div>
+          <div className="delete" onClick={handleDelete}>
+            삭제
+          </div>
         </div>
       </div>
       <div>
-        <SelectQuantity
-          handleQuantity={handleQuantity}
-          selectQuantity={selectQuantity}
-        />
-        <div>₩{(price * selectQuantity).toLocaleString()}</div>
+        <SelectQuantity handleQuantity={handleQuantity} />
+        <div>₩{(price * productQuantity).toLocaleString()}</div>
       </div>
     </div>
   );

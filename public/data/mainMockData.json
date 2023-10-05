@@ -1,37 +1,37 @@
 [
   {
     "productId": 1,
-    "productImage": "https://i.postimg.cc/hPnkxWL1/glass-4108085-1280.jpg",
+    "productImage": "https://i.postimg.cc/kgQ7pgTJ/image1.png",
     "productName": "제라늄 리프 듀엣",
     "aroma": "부드러운 클렌저와 아로마틱 밤"
   },
   {
     "productId": 2,
-    "productImage": "https://i.ibb.co/59k3wpy/shampoo-1860642-1280.png",
+    "productImage": "https://i.postimg.cc/gJCY7Lb0/image2.png",
     "productName": "레저렉션 아로마틱 핸드 밤",
     "aroma": "시트러스, 우디, 허브향"
   },
   {
     "productId": 3,
-    "productImage": "https://i.ibb.co/59k3wpy/shampoo-1860642-1280.png",
+    "productImage": "https://i.postimg.cc/kgQ7pgTJ/image1.png",
     "productName": "레저렉션 아로마틱 핸드 워시",
     "aroma": "지친 손을 위한 부드러운 클렌징"
   },
   {
     "productId": 4,
-    "productImage": "https://i.ibb.co/59k3wpy/shampoo-1860642-1280.png",
+    "productImage": "https://i.postimg.cc/gJCY7Lb0/image2.png",
     "productName": "울루스 아로마틱 룸 스프레이",
     "aroma": "가정을 상쾌하게 가꿔줍니다."
   },
   {
     "productId": 5,
-    "productImage": "https://i.ibb.co/59k3wpy/shampoo-1860642-1280.png",
+    "productImage": "https://i.postimg.cc/kgQ7pgTJ/image1.png",
     "productName": "이더시스 오 드 퍼퓸",
     "aroma": "우디, 스파이시, 앰버리"
   },
   {
     "productId": 6,
-    "productImage": "https://i.ibb.co/59k3wpy/shampoo-1860642-1280.png",
+    "productImage": "https://i.postimg.cc/gJCY7Lb0/image2.png",
     "productName": "테싯 오 드 퍼퓸",
     "aroma": "상쾌한, 그린, 시트러스향"
   }

@@ -2,7 +2,7 @@ import { quantityArray } from '../Variable';
 import React from 'react';
 import './SelectQuantity.scss';
 
-const SelectQuantity = ({ handleQuantity, selectQuantity }) => {
+const SelectQuantity = ({ handleQuantity }) => {
   return (
     <select onChange={handleQuantity}>
       {quantityArray.map(value => {
