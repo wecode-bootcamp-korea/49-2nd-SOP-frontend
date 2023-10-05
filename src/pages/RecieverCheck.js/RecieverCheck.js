@@ -18,19 +18,21 @@ const RecieverCheck = () => {
   }, []);
 
   const handlePay = () => {
-    // fetch('http://10.58.52.240:8000/users/signUp', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json;charset=utf-8',
-    //     authorization: '토큰',
-    //   },
-    //   body: JSON.stringify({}),
-    // })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     if (data.message === 'USER_CREATED') {
-    //     }
-    //   });
+    fetch('http://10.58.52.240:8000/users/signUp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        authorization: '토큰',
+      },
+      body: JSON.stringify({
+        totalPrice: totalPrice(),
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === 'USER_CREATED') {
+        }
+      });
   };
 
   const totalPrice = () => {
