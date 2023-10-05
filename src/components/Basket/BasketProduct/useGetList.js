@@ -10,7 +10,7 @@ const useGetList = () => {
     fetch(`${HOST}/cart`, {
       method: 'GET',
       headers: {
-        authorization: localStorage.getItem('loginToken'),
+        authorization: window.localStorage.getItem('token'),
       },
     })
       .then(response => response.json())
