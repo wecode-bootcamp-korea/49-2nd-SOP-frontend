@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "2_category_id": 1,
+      "created_at": "2023-10-02T06:31:42.000Z",
+      "description": "마음을 차분하게 가라앉혀주고 우리 몸의 감각을 일깨워주는 흙내음과 시트러스 노트의 따뜻하고 생기 넘치는 블렌드",
+      "id": 3,
+      "size": ["100 mL", "500 mL(펌프 미포함)", "500 mL"],
+      "aroma": "상쾌한, 그린, 시트러스향",
+      "img_url": "https://i.postimg.cc/kgQ7pgTJ/image1.png",
+      "suited_to": "모든 성별, 복고주의자, 탐미주의자, 일광욕을 즐기는 사람들",
+      "key_ingredients": "유자, 베티버, 바질",
+      "name": "테싯",
+      "price": [30000, 50000, 70000],
+      "product_id": 5,
+      "updated_at": null,
+      "specification": "상품 상세설명 참조",
+      "Period": "개봉전 유효기간이 12개월 이상 남아있는 제품으로 배송. 제조번호 및 제조일자: 용기별도표시(예, 30C0523A->2023년 05월30일제조). 개봉후 사용기간: 별도심벌참조. 개봉전 유효기간: 제조일로부터 36개월",
+      "company": "Emeis Cosmetics Pty. Ltd / 이솝코리아 유한회사",
+      "Country": "호주"
+    }
+  ]
+}
