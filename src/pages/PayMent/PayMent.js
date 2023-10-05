@@ -12,8 +12,9 @@ const PayMent = () => {
   const [nation, setNation] = useState('');
   const [detailAddress, setdetailAddress] = useState('');
   const [productData, setProductData] = useState([]);
-  const [productDetail, setProductDetail] = useState(false);
   const [userData, setUserData] = useState({});
+  const [productDetail, setProductDetail] = useState(false);
+
   useEffect(() => {
     fetch('/data/payMentData.json')
       .then(res => res.json())
@@ -26,6 +27,10 @@ const PayMent = () => {
   const navigate = useNavigate();
   const goToMain = () => {
     navigate('/');
+  };
+
+  const goToRecieverCheck = () => {
+    navigate('/recieverCheck');
   };
   const handleProductDetail = () => {
     setProductDetail(!productDetail);
@@ -78,21 +83,27 @@ const PayMent = () => {
       return;
     }
 
-    fetch('http://10.58.52.240:8000/users/signUp', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-        authorization: '토큰',
-      },
-      body: JSON.stringify({
-        firstName: firstName,
-        lastName: lastName,
-        phoneNumber: phoneNumber,
-        nation: nation,
-        address: address,
-        detailAddress: detailAddress,
-      }),
-    });
+    // fetch('http://10.58.52.240:8000/users/signUp', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json;charset=utf-8',
+    //     authorization: '토큰',
+    //   },
+    //   body: JSON.stringify({
+    //     firstName: firstName,
+    //     lastName: lastName,
+    //     phoneNumber: phoneNumber,
+    //     nation: nation,
+    //     address: address,
+    //     detailAddress: detailAddress,
+    //   }),
+    // })
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     if (data.message === 'USER_CREATED') {
+    //       goToRecieverCheck();
+    //     }
+    //   });
   };
 
   // 맵으로 돌린 부분보다 윗부분에서 총합 금액 구하는식인데
@@ -116,12 +127,9 @@ const PayMent = () => {
           onClick={goToMain}
         />
       </div>
-      {/* 이솝로고 제외 주문내역 */}
       <div className="mockdataContainer">
         <div className="orderList">
-          {/* 첫재쭐 감싼애 토글 */}
           <div>
-            {/* 첫재쭐 */}
             <div className="orderListHandler" onClick={handleProductDetail}>
               <span className="orderListLetter">주문 내역</span>
               <span className="totalPriceLetter">
@@ -130,12 +138,10 @@ const PayMent = () => {
               {!productDetail ? <HiChevronDown /> : <HiChevronUp />}
             </div>
           </div>
-          {/* 두쨰줄 부터 세제쭐감싼애 */}
           {!productDetail ? (
             ''
           ) : (
             <div>
-              {/* 두쨰줄 */}
               <div className="priceDetailWrapper">
                 <dl>
                   <div className="priceDetailLetterWrapper">
@@ -274,6 +280,7 @@ const PayMent = () => {
           </div>
           <div className="buttonWrapper">
             <button onClick={handlePayMent}>결제하기로 이동</button>
+            <button onClick={goToRecieverCheck}>임시버튼</button>
           </div>
         </form>
       </div>
