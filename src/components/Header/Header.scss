@@ -17,4 +17,17 @@ header {
     display: flex;
     gap: 25px;
   }
+
+  .handleModal {
+    cursor: pointer;
+  }
+  .modal {
+    position: fixed;
+    top: 80px;
+    width: 100vw;
+    height: calc(100vh - 80px);
+    left: 0;
+    // background-color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 }

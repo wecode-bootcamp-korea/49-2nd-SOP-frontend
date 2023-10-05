@@ -7,8 +7,8 @@ const SectionBox = ({ title, subject }) => {
     <section>
       <div className="title">{title}</div>
       <div>
-        {subject.map((vlaue, index) => {
-          return <Subject subject={vlaue} key={index} />;
+        {subject.map((value, index) => {
+          return <Subject subject={value} key={index} />;
         })}
       </div>
     </section>

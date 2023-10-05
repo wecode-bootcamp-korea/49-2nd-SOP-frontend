@@ -1,10 +1,15 @@
+import React, { useState } from 'react';
 import NavButton from '../NavButton/NavButton';
-import React from 'react';
+import Login from '../../pages/Login/Login';
 import './Header.scss';
 
 const Header = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleModalopen = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   return (
-    <header>
+    <header className="header">
       <div>
         <NavButton to="/">홈</NavButton>
         <NavButton to="/hair">헤어</NavButton>
@@ -14,9 +19,19 @@ const Header = () => {
         <span>스토어</span>
       </div>
       <div>
-        <NavButton to="/login">로그인</NavButton>
-        <NavButton to="/cart">카트</NavButton>
+        <div className="handleModal" onClick={handleModalopen}>
+          로그인
+        </div>
+        <NavButton to="/Basket">카트</NavButton>
       </div>
+      {isModalOpen && (
+        <div className="modal">
+          <Login
+            handleModalopen={handleModalopen}
+            setIsModalOpen={setIsModalOpen}
+          />
+        </div>
+      )}
     </header>
   );
 };

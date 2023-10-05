@@ -1,0 +1,47 @@
+.inputContainer {
+  position: relative;
+  width: 100%;
+
+  .input {
+    width: 100%;
+    font-size: 24px;
+    border-width: 0 0 1px;
+    border-style: solid;
+    border-color: #ccc;
+    background-color: transparent;
+    line-height: 1.5;
+
+    &:focus {
+      border-style: 1px solid;
+      border-color: black;
+      transition: 0.2s;
+    }
+  }
+
+  .inputLabel {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    font-size: 24px;
+    color: #666;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition:
+      top 0.2s,
+      font-size 0.2s;
+  }
+
+  .input:placeholder-shown + .inputLabel {
+    visibility: hidden;
+    transition: 0.1s ease-in-out;
+  }
+
+  .input:not(:placeholder-shown) + .inputLabel,
+  .input:focus:not(:placeholder-shown) + .inputLabel {
+    visibility: visible;
+    left: 2px;
+    font-size: 12px;
+    transform: translateY(-30px);
+    transition: 0.2s ease-in-out transform;
+  }
+}

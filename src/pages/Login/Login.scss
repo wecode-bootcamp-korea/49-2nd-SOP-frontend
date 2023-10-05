@@ -1,0 +1,125 @@
+@import '../../styles/mixin.scss';
+
+.login {
+  position: fixed;
+  z-index: 1400;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  outline: none;
+
+  .modal {
+    position: fixed;
+    width: 100vw;
+    top: 80px;
+    height: calc(100vh - 80px);
+    background-color: rgba(0, 0, 0, 0.2);
+    left: 0;
+  }
+
+  .loginModal {
+    overflow-y: auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 50px 0;
+
+    h2 {
+      font-size: 24px;
+    }
+
+    .loginScreen {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      height: auto;
+      margin: auto;
+      padding: 50px;
+      background-color: #fffef2;
+      border: 1px solid;
+      border-radius: 6px;
+
+      .signupExplanation {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #666;
+      }
+
+      .signupButton {
+        @include loginAndSignupButton;
+        margin-top: 20px;
+        border-color: rgba(51, 51, 51, 0.2);
+        background-color: white;
+        color: #333;
+
+        &:hover {
+          background-color: #333;
+          color: white;
+        }
+      }
+
+      .loginContent {
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+
+        .loginLetter {
+          margin: 0;
+          h1 {
+            font-size: 30px;
+          }
+        }
+        .inputAndButtonWrapper {
+          display: flex;
+          flex-direction: column;
+          margin: 20px 0 35px;
+
+          p {
+            align-self: end;
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #666;
+          }
+          .emailWrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 25px;
+            font-family: 'Suisse Regular', sans-serif;
+            margin-bottom: 25px;
+          }
+          .passwordWrapper {
+            position: relative;
+            padding-top: 25px;
+            font-family: 'Suisse Regular', sans-serif;
+
+            .viewPassword {
+              @include viewPasswordButton;
+            }
+          }
+          .loginButton {
+            @include loginAndSignupButton;
+            margin-top: 35px;
+            background-color: black;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .goBackButton {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 42px;
+
+    .closeButton {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+  }
+}
