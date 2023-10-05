@@ -5,7 +5,7 @@ import './Itembox.scss';
 const Itembox = ({ id, itemOptions, itemName, itemType, itemAroma }) => {
   const [radioButton, setRadioButton] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
-  const [userCartItem, setuserCartItem] = useState([]);
+  const [userCartItem, setuserCartItem] = useState(0);
   const navigate = useNavigate();
   // useEffect(() => {
   //   fetch('/data/backData.json', {
@@ -39,6 +39,7 @@ const Itembox = ({ id, itemOptions, itemName, itemType, itemAroma }) => {
   useEffect(() => {
     console.log(userCartItem);
   }, []);
+
   return (
     <div
       className="itemList"
@@ -53,7 +54,7 @@ const Itembox = ({ id, itemOptions, itemName, itemType, itemAroma }) => {
       />
       <div className="itemName">{itemName}</div>
       <div className="itemSelect">
-        {itemOptions.length === 1 || isHovered === true
+        {itemOptions.length === 1 || isHovered
           ? ''
           : `${itemOptions.length}사이즈 / ₩${itemOptions[0].price
               .toString()
@@ -64,7 +65,7 @@ const Itembox = ({ id, itemOptions, itemName, itemType, itemAroma }) => {
               {a.size}
             </div>
           ) : (
-            isHovered === true && (
+            isHovered && (
               <div className="itemBtn" key={a.id}>
                 <input
                   className="itemRadio"
@@ -106,7 +107,7 @@ const Itembox = ({ id, itemOptions, itemName, itemType, itemAroma }) => {
         </div>
 
         <div
-          className={isHovered === true ? 'itemCartBlack' : 'itemCart'}
+          className={isHovered ? 'itemCartBlack' : 'itemCart'}
           onClick={
             itemOptions.length === 1
               ? () => {
@@ -119,7 +120,7 @@ const Itembox = ({ id, itemOptions, itemName, itemType, itemAroma }) => {
                 }
           }
         >
-          {isHovered === true ? '카트에 추가하기' : ''}
+          {isHovered ? '카트에 추가하기' : ''}
         </div>
       </div>
     </div>
