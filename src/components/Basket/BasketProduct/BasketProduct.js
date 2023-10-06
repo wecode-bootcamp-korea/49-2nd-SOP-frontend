@@ -1,43 +1,59 @@
 import { useState } from 'react';
 import SelectQuantity from '../../SelectQuantity/SelectQuantity';
 import { HOST } from '../../Variable';
+import { useGetList } from './useGetList';
 import './BasketProduct.scss';
 
-const BasketProduct = ({ productInfo }) => {
-  const { cartId, productName, productImage, size, price, quantity } =
-    productInfo;
-
+const BasketProduct = ({ productInfo, setList }) => {
+  const {
+    cartId,
+    productId,
+    productName,
+    productImage,
+    size,
+    price,
+    quantity,
+  } = productInfo;
   const [productQuantity, setProductQuantity] = useState(quantity);
+  const { getCart } = useGetList();
 
   const handleQuantity = event => {
     const { value } = event.target;
     setProductQuantity(value);
-    fetch(`${HOST}/`, {
+    fetch(`${HOST}/cart/fix`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        authorization: '',
+        authorization: localStorage.getItem('loginToken'),
       },
       body: JSON.stringify({
         cartId,
-        quantity: value,
+        productId,
+        quantity: Number(value),
       }),
     })
       .then(res => res.json())
-      .then();
+      .then(() =>
+        getCart()
+          .then(res => res.json())
+          .then(result => setList(result.data)),
+      );
   };
 
   const handleDelete = () => {
-    fetch(`${HOST}/delete`, {
+    fetch(`${HOST}/cart/${cartId}/${productId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        authorization: '',
+        authorization: localStorage.getItem('loginToken'),
       },
-      body: JSON.stringify({
-        cartId,
-      }),
-    });
+    })
+      .then(res => res.json())
+      .then(() =>
+        getCart()
+          .then(res => res.json())
+          .then(result => setList(result.data)),
+      );
   };
 
   return (

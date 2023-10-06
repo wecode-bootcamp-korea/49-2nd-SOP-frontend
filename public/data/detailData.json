@@ -2,6 +2,7 @@
   "data": [
     {
       "id": 1,
+      "remainingPoints": 3000000000000000,
       "name": "샴푸",
       "options": [
         {

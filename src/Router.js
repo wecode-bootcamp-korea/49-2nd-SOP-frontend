@@ -8,7 +8,8 @@ import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import PayMent from './pages/PayMent/PayMent';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import RecieverCheck from './pages/RecieverCheck.js/RecieverCheck';
+import RecieverCheck from './pages/RecieverCheck/RecieverCheck';
+import PayMentCheck from './pages/PayMentCheck/PayMentCheck';
 
 const Router = () => {
   return (
@@ -23,6 +24,7 @@ const Router = () => {
         <Route path="/payMent" element={<PayMent />} />
         <Route path="/recieverCheck" element={<RecieverCheck />} />
         <Route path="/basket" element={<Basket />} />
+        <Route path="/payMentCheck" element={<PayMentCheck />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -5,21 +5,27 @@ const useGetList = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setLoading(true);
-    fetch(`${HOST}/cart`, {
+  const getCart = () => {
+    return fetch(`${HOST}/cart`, {
       method: 'GET',
       headers: {
-        authorization: window.localStorage.getItem('token'),
+        'Content-Type': 'application/json;charset=utf-8',
+        authorization: localStorage.getItem('loginToken'),
       },
-    })
+    });
+  };
+
+  useEffect(() => {
+    getCart()
       .then(response => response.json())
       .then(result => {
         setLoading(false);
-        setList(result);
+        const { data } = result;
+        setList(data);
       });
   }, []);
-  return { list, loading };
+
+  return { list, loading, setList, getCart };
 };
 
 export { useGetList };

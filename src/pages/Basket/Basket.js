@@ -4,15 +4,15 @@ import { useGetList } from '../../components/Basket/BasketProduct/useGetList';
 import './Basket.scss';
 
 const Basket = () => {
-  const { list, loading } = useGetList();
-
-  const totalPrice = list
-    .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
-    .toLocaleString();
+  const { list, loading, setList } = useGetList();
 
   if (loading) {
     return null;
   }
+  if (list.length <= 0) return null;
+  const totalPrice = list
+    .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
+    .toLocaleString();
 
   return (
     <div className="basket">
@@ -23,8 +23,9 @@ const Basket = () => {
           {list.map(productInfo => {
             return (
               <BasketProduct
-                key={productInfo.cartId}
+                key={productInfo.productId}
                 productInfo={productInfo}
+                setList={setList}
               />
             );
           })}
