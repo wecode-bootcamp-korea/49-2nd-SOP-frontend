@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import './Hair.scss';
 import Itembox from '../../components/Itembox/Itembox';
+import { HOST } from '../../components/Variable';
 
 const Hair = () => {
-  const [itemList, setItemList] = useState([]);
+  const [itemList, setItemList] = useState({});
 
   useEffect(() => {
-    fetch('/data/detailData.json')
+    fetch(`http://${HOST}/product/hair`)
       .then(response => response.json())
       .then(data => {
         setItemList(data.data);
       });
   }, []);
 
-  if (setItemList.length === 0) {
-    return null;
-  }
+  const isEmpty = Object.keys(itemList).length > 0;
+  if (!isEmpty) return null;
+
+  // if (setItemList.length === 0) {
+  //   return null;
+  // }
 
   return (
     <div className="hairPage">
@@ -35,12 +39,10 @@ const Hair = () => {
         </div>
         {itemList.map(tab => (
           <Itembox
-            key={tab.id}
-            id={tab.id}
-            itemOptions={tab.options}
-            itemName={tab.name}
-            itemType={tab.suited_to}
-            itemAroma={tab.aroma}
+            key={tab.product.id}
+            id={tab.product.id}
+            itemSize={tab.product_size_image}
+            itemName={tab.product.name}
           />
         ))}
       </div>
