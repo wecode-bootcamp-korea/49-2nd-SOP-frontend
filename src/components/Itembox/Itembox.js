@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Itembox.scss';
 import { HOST } from '../../components/Variable';
@@ -7,32 +7,27 @@ const Itembox = ({ id, itemSize, itemName }) => {
   const [radioButton, setRadioButton] = useState(1);
   const [radioIdexNumber, setradioIdexNumber] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
-  const [userCartItem, setuserCartItem] = useState(5);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch(`http://${HOST}/cart`, {
+  const handleAddCart = productId => {
+    fetch(`${HOST}/cart`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        authorization: localStorage.getItem('token'),
+        authorization: localStorage.getItem('loginToken'),
       },
       body: JSON.stringify({
-        productId: userCartItem,
+        productId: productId - 3,
         quantity: 1,
       }),
     }) //요청
       .then(response => response.json())
       .then(data => {});
-  }, []);
+  };
 
   const handleRadioButton = (id, index) => {
     setRadioButton(id);
     setradioIdexNumber(index);
-  };
-
-  const handleUserCart = id => {
-    setuserCartItem(id);
   };
 
   const handleClick = () => {
@@ -110,10 +105,10 @@ const Itembox = ({ id, itemSize, itemName }) => {
           onClick={
             itemSize.length === 1
               ? () => {
-                  handleUserCart(itemSize[0].id);
+                  handleAddCart(itemSize[0].id);
                 }
               : () => {
-                  handleUserCart(itemSize[radioIdexNumber].id);
+                  handleAddCart(itemSize[radioIdexNumber].id);
                 }
           }
         >
