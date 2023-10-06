@@ -20,7 +20,7 @@ const ProductDetail = () => {
   };
 
   useEffect(() => {
-    fetch(`http://10.58.52.238:8000/product/hair/hair/${params.id}`, {
+    fetch(`http://10.58.52.224:8000/product/hair/hair/${params.id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -34,7 +34,7 @@ const ProductDetail = () => {
   }, []);
 
   const handleCartItem = a => {
-    fetch('http://10.58.52.191:8000/cart/hair', {
+    fetch('http://10.58.52.224:8000/cart', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -42,6 +42,7 @@ const ProductDetail = () => {
       },
       body: JSON.stringify({
         productId: a,
+        quantity: 1,
       }),
     }) //요청
       .then(response => response.json())

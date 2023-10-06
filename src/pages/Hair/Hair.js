@@ -6,11 +6,10 @@ const Hair = () => {
   const [itemList, setItemList] = useState({});
 
   useEffect(() => {
-    fetch('http://10.58.52.238:8000/product/hair')
+    fetch('http://10.58.52.224:8000/product/hair')
       .then(response => response.json())
       .then(data => {
         setItemList(data.data);
-        console.log(data.data);
       });
   }, []);
 
@@ -39,12 +38,10 @@ const Hair = () => {
         </div>
         {itemList.map(tab => (
           <Itembox
-            key={tab.id}
-            id={tab.id}
-            itemOptions={tab.options}
-            itemName={tab.name}
-            itemType={tab.suited_to}
-            itemAroma={tab.aroma}
+            key={tab.product.id}
+            id={tab.product.id}
+            itemSize={tab.product_size_image}
+            itemName={tab.product.name}
           />
         ))}
       </div>
