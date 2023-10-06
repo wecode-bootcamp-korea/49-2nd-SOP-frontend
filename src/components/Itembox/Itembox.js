@@ -17,7 +17,8 @@ const Itembox = ({ id, itemSize, itemName }) => {
         authorization: localStorage.getItem('loginToken'),
       },
       body: JSON.stringify({
-        productId: productId - 3,
+        id: productId,
+        productId: id,
         quantity: 1,
       }),
     }) //요청
