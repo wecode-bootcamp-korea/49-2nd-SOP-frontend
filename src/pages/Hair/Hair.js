@@ -7,7 +7,9 @@ const Hair = () => {
   const [itemList, setItemList] = useState({});
 
   useEffect(() => {
-    fetch(`http://${HOST}/product/hair`)
+    fetch(`${HOST}/product/hair`, {
+      method: 'GET',
+    })
       .then(response => response.json())
       .then(data => {
         setItemList(data.data);
@@ -17,9 +19,9 @@ const Hair = () => {
   const isEmpty = Object.keys(itemList).length > 0;
   if (!isEmpty) return null;
 
-  // if (setItemList.length === 0) {
-  //   return null;
-  // }
+  if (itemList.length === 0) {
+    return null;
+  }
 
   return (
     <div className="hairPage">

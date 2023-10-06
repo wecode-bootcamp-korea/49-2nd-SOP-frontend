@@ -21,7 +21,7 @@ const ProductDetail = () => {
   };
 
   useEffect(() => {
-    fetch(`http://${HOST}/product/hair/hair/${params.id}`, {
+    fetch(`${HOST}/product/hair/hair/${params.id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -34,7 +34,7 @@ const ProductDetail = () => {
       });
   }, []);
 
-  const handleCartItem = a => {
+  const handleCartItem = productId => {
     fetch(`http://${HOST}/cart`, {
       method: 'POST',
       headers: {
@@ -42,7 +42,7 @@ const ProductDetail = () => {
         authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
-        productId: a,
+        productId: productId - 3,
         quantity: 1,
       }),
     }) //요청

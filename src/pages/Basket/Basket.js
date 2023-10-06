@@ -1,13 +1,23 @@
+import { useNavigate } from 'react-router-dom';
 import BasketHeader from '../../components/Basket/BasketHeader/BasketHeader';
 import BasketProduct from '../../components/Basket/BasketProduct/BasketProduct';
 import { useGetList } from '../../components/Basket/BasketProduct/useGetList';
 import './Basket.scss';
 
 const Basket = () => {
-  const { list, loading, setList } = useGetList();
+  const navigate = useNavigate();
+  const { list, setList } = useGetList();
 
-  if (loading) {
-    return null;
+  const goToPayment = () => {
+    navigate('/payment');
+  };
+
+  if (list.length === 0) {
+    return (
+      <div className="basket">
+        <p>장바구니가 비었습니다</p>
+      </div>
+    );
   }
   if (list.length <= 0) return null;
   const totalPrice = list
@@ -31,7 +41,9 @@ const Basket = () => {
           })}
         </div>
       </div>
-      <button className="order">주문하기</button>
+      <button className="order" onClick={goToPayment}>
+        주문하기
+      </button>
     </div>
   );
 };
