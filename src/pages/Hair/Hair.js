@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './Hair.scss';
 import Itembox from '../../components/Itembox/Itembox';
+import { HOST } from '../../components/Variable';
 
 const Hair = () => {
   const [itemList, setItemList] = useState({});
 
   useEffect(() => {
-    fetch('http://10.58.52.224:8000/product/hair')
+    fetch(`http://${HOST}/product/hair`)
       .then(response => response.json())
       .then(data => {
         setItemList(data.data);

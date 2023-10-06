@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Itembox.scss';
+import { HOST } from '../../components/Variable';
 
 const Itembox = ({ id, itemSize, itemName }) => {
   const [radioButton, setRadioButton] = useState(1);
@@ -10,7 +11,7 @@ const Itembox = ({ id, itemSize, itemName }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://10.58.52.191:8000/cart', {
+    fetch(`http://${HOST}/cart`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

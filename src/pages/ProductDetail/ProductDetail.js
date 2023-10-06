@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { HOST } from '../../components/Variable';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
@@ -20,7 +21,7 @@ const ProductDetail = () => {
   };
 
   useEffect(() => {
-    fetch(`http://10.58.52.224:8000/product/hair/hair/${params.id}`, {
+    fetch(`http://${HOST}/product/hair/hair/${params.id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -34,7 +35,7 @@ const ProductDetail = () => {
   }, []);
 
   const handleCartItem = a => {
-    fetch('http://10.58.52.224:8000/cart', {
+    fetch(`http://${HOST}/cart`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -51,9 +52,7 @@ const ProductDetail = () => {
 
   const isEmpty = Object.keys(itemDetail).length > 0;
   if (!isEmpty) return null;
-  console.log(itemDetail);
-  console.log(itemDetail.product_size_data);
-  console.log(itemDetail.product_size_data[priceButton].id);
+
   return (
     <div className="productPage">
       {itemModal === true && (
