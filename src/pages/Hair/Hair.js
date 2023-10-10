@@ -5,7 +5,6 @@ import { HOST } from '../../components/Variable';
 
 const Hair = () => {
   const [itemList, setItemList] = useState({});
-  console.log(itemList);
 
   useEffect(() => {
     fetch(`${HOST}/product/hair`, {

@@ -6,12 +6,7 @@ import './Basket.scss';
 
 const Basket = () => {
   const navigate = useNavigate();
-  const { list, setList } = useGetList();
-  console.log(list);
-
-  const goToPayment = () => {
-    navigate('/payment');
-  };
+  const { list, setList } = useGetList([]);
 
   if (list.length === 0) {
     return (
@@ -24,6 +19,12 @@ const Basket = () => {
   const totalPrice = list
     .reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
     .toLocaleString();
+
+  const goToPayment = () => {
+    navigate('/payment', {
+      state: [totalPrice, list[0].cartId],
+    });
+  };
 
   return (
     <div className="basket">
