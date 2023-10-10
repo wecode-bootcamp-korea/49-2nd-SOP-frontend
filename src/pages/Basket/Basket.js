@@ -7,6 +7,7 @@ import './Basket.scss';
 const Basket = () => {
   const navigate = useNavigate();
   const { list, setList } = useGetList();
+  console.log(list);
 
   const goToPayment = () => {
     navigate('/payment');
@@ -30,10 +31,10 @@ const Basket = () => {
         <img src="/images/2sop.png" alt="logo" className="logo" />
         <BasketHeader totalPrice={totalPrice} />
         <div>
-          {list.map(productInfo => {
+          {list.map((productInfo, index) => {
             return (
               <BasketProduct
-                key={productInfo.productId}
+                key={index}
                 productInfo={productInfo}
                 setList={setList}
               />

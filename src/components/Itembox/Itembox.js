@@ -23,7 +23,12 @@ const Itembox = ({ id, itemSize, itemName }) => {
         quantity: 1,
       }),
     }) //요청
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          alert('장바구니에 추가 되었습니다.');
+          return response.json();
+        }
+      })
       .then(result => {});
   };
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HiChevronUp, HiChevronDown } from 'react-icons/hi2';
 import './PayMent.scss';
@@ -15,15 +15,6 @@ const PayMent = () => {
   const [productData, setProductData] = useState([]);
   const [userData, setUserData] = useState({});
   const [productDetail, setProductDetail] = useState(false);
-
-  // useEffect(() => {
-  //   fetch('/data/payMentData.json')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setProductData(data.data);
-  //       setUserData(data.userData);
-  //     });
-  // }, []);
 
   const navigate = useNavigate();
   const goToMain = () => {
