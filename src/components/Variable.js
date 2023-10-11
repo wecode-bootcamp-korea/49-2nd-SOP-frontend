@@ -1,4 +1,4 @@
-export const HOST = 'http://10.58.52.224:8000';
+export const HOST = 'http://10.58.52.137:8000';
 
 export const quantityArray = Array(10)
   .fill(1)

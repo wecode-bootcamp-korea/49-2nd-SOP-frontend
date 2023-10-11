@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { HiChevronUp, HiChevronDown } from 'react-icons/hi2';
 import './PayMent.scss';
 import Input from '../../components/Input/Input';
 import { HOST } from '../../components/Variable';
 
 const PayMent = () => {
+  const { state } = useLocation();
+  console.log(state);
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -15,15 +18,6 @@ const PayMent = () => {
   const [productData, setProductData] = useState([]);
   const [userData, setUserData] = useState({});
   const [productDetail, setProductDetail] = useState(false);
-
-  // useEffect(() => {
-  //   fetch('/data/payMentData.json')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setProductData(data.data);
-  //       setUserData(data.userData);
-  //     });
-  // }, []);
 
   const navigate = useNavigate();
   const goToMain = () => {
@@ -93,7 +87,7 @@ const PayMent = () => {
         authorization: localStorage.getItem('loginToken'),
       },
       body: JSON.stringify({
-        cartId: productData.cartId,
+        cartId: state[1],
         firstName: firstName,
         lastName: lastName,
         phoneNumber: phoneNumber,
@@ -111,15 +105,6 @@ const PayMent = () => {
         }
       });
   };
-
-  const totalPrice = () => {
-    let totalCost = 0;
-    for (const product of productData) {
-      totalCost += product.price * product.quantity;
-    }
-    return totalCost;
-  };
-
   return (
     <div className="payMent">
       <div className="logoWrapper">
@@ -136,7 +121,7 @@ const PayMent = () => {
             <div className="orderListHandler" onClick={handleProductDetail}>
               <span className="orderListLetter">주문 내역</span>
               <span className="totalPriceLetter">
-                ₩{totalPrice().toLocaleString()}
+                ₩{state[0].toLocaleString()}
               </span>
               {!productDetail ? <HiChevronDown /> : <HiChevronUp />}
             </div>
@@ -149,7 +134,7 @@ const PayMent = () => {
                 <dl>
                   <div className="priceDetailLetterWrapper">
                     <span>소계 (세금 포함)</span>
-                    <span>₩{totalPrice().toLocaleString()}</span>
+                    <span>₩{state[0].toLocaleString()}</span>
                   </div>
                   <div className="priceDetailLetterWrapper">
                     <span>배송</span>
@@ -161,7 +146,7 @@ const PayMent = () => {
                   </div>
                   <div className="priceDetailLetterWrapper">
                     <span>합계</span>
-                    <span>₩{totalPrice().toLocaleString()}</span>
+                    <span>₩{state[0].toLocaleString()}</span>
                   </div>
                 </dl>
               </div>

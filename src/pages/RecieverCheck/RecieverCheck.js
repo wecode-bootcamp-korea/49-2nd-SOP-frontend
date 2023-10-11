@@ -16,7 +16,13 @@ const RecieverCheck = () => {
   };
 
   useEffect(() => {
-    fetch('/data/recieverCheckData.json')
+    fetch(`${HOST}/payment`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+        authorization: localStorage.getItem('loginToken'),
+      },
+    })
       .then(res => res.json())
       .then(data => {
         setProductData(data.data);

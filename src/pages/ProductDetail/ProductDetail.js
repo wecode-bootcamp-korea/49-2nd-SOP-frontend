@@ -25,7 +25,6 @@ const ProductDetail = () => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        // authorization: localStorage.getItem('token'),
       },
     })
       .then(response => response.json())

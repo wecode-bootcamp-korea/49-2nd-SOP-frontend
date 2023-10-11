@@ -8,6 +8,7 @@ const BasketProduct = ({ productInfo, setList }) => {
   const {
     cartId,
     productId,
+    id,
     productName,
     productImage,
     size,
@@ -28,6 +29,7 @@ const BasketProduct = ({ productInfo, setList }) => {
       },
       body: JSON.stringify({
         cartId,
+        id,
         productId,
         quantity: Number(value),
       }),
@@ -41,7 +43,7 @@ const BasketProduct = ({ productInfo, setList }) => {
   };
 
   const handleDelete = () => {
-    fetch(`${HOST}/cart/${cartId}/${productId}`, {
+    fetch(`${HOST}/cart/${cartId}/${productId}/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

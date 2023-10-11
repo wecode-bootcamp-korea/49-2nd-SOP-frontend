@@ -27,7 +27,7 @@ const ProductContainer = ({ productList }) => {
         style={{ transform: `translateX(${count * -350}px)` }}
       >
         {productList.map(info => {
-          return <Product key={info.productId} info={info} />;
+          return <Product key={info.id} info={info} />;
         })}
       </div>
       <Button className="left" onClick={handleMinus}>

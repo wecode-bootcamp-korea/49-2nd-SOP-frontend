@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Itembox.scss';
+
 import { HOST } from '../../components/Variable';
+import './Itembox.scss';
 
 const Itembox = ({ id, itemSize, itemName }) => {
   const [radioButton, setRadioButton] = useState(1);
@@ -9,7 +10,7 @@ const Itembox = ({ id, itemSize, itemName }) => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
 
-  const handleAddCart = productId => {
+  const handleAddCart = sizeId => {
     fetch(`${HOST}/cart`, {
       method: 'POST',
       headers: {
@@ -17,12 +18,18 @@ const Itembox = ({ id, itemSize, itemName }) => {
         authorization: localStorage.getItem('loginToken'),
       },
       body: JSON.stringify({
-        productId: productId - 3,
+        productId: id,
+        id: sizeId,
         quantity: 1,
       }),
     }) //요청
-      .then(response => response.json())
-      .then(data => {});
+      .then(response => {
+        if (response.ok) {
+          alert('장바구니에 추가 되었습니다.');
+          return response.json();
+        }
+      })
+      .then(result => {});
   };
 
   const handleRadioButton = (id, index) => {
